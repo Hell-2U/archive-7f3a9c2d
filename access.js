@@ -3,8 +3,7 @@
   'use strict';
   const EXPECTED_KEY_HASH = '74805910aee5f12aa61e49b50806cf6b50c939c33f6216963b3f6ac206e24199';
   const screen = document.querySelector('#access-screen');
-  const message = document.querySelector('#access-message');
-  const title = document.querySelector('#access-title');
+  const header = document.querySelector('.site-header');
   const page = document.querySelector('main.page');
   let bootPromise;
   let generation = 0;
@@ -28,31 +27,30 @@
   async function openInvitation() {
     const current = ++generation;
     page.hidden = true;
+    header.hidden = true;
+    document.body.classList.add('access-locked');
+    document.title = 'ошибка: 0012';
     screen.hidden = false;
     document.querySelectorAll('dialog[open]').forEach(dialog => dialog.close());
     const key = new URLSearchParams(location.hash.slice(1)).get('key');
-    title.textContent = 'Коллекция по приглашению';
-    message.textContent = 'Открой полную ссылку, которой поделились с тобой.';
     if (!key || !/^[A-Za-z0-9_-]{43}$/.test(key)) return;
     try {
       const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(key));
       const hash = Array.from(new Uint8Array(digest), value => value.toString(16).padStart(2, '0')).join('');
       if (current !== generation) return;
       if (hash !== EXPECTED_KEY_HASH) {
-        title.textContent = 'Ссылка не подошла';
-        message.textContent = 'Проверь, что ссылка скопирована целиком, или попроси новое приглашение.';
         return;
       }
-      message.textContent = 'Открываем коллекцию…';
       await boot();
       if (current !== generation) return;
       document.querySelector('.brand').href = location.pathname + location.search + location.hash;
       screen.hidden = true;
+      header.hidden = false;
+      document.body.classList.remove('access-locked');
+      document.title = document.querySelector('#page-title').textContent;
       page.hidden = false;
     } catch {
       if (current !== generation) return;
-      title.textContent = 'Не удалось открыть коллекцию';
-      message.textContent = 'Обнови страницу и попробуй ещё раз. Если это локальная копия, открой её через локальный сервер.';
     }
   }
   addEventListener('hashchange', openInvitation);
