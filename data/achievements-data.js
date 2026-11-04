@@ -1,4 +1,3 @@
-// Generated from achievements.json by npm run build.
 window.ACHIEVEMENT_DATA = {
   "version": 1,
   "title": "Наши ачивки",
