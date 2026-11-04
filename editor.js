@@ -69,14 +69,24 @@
     }catch(err){error(label,err);}finally{save.disabled=false;}});
     node.showModal();title.focus();
   }
+  function removeDraft(kind,id){
+    const {node,form}=dialog(kind==='achievement'?'Удалить ачивку?':'Удалить разделитель партии?');
+    form.append(el('p',{class:'editor-note'},kind==='achievement'?'Ачивка будет удалена из черновика. Общий сайт изменится после публикации.':'Ачивки сохранятся и перейдут в предыдущую партию. У первой партии будет убрано название.'));
+    const save=formFooter(form,node);save.textContent='Удалить из черновика';
+    form.onsubmit=async event=>{event.preventDefault();const next=structuredClone(state.collection);
+      if(kind==='achievement')next.achievements=next.achievements.filter(a=>a.id!==id);
+      else{const index=next.parties.findIndex(p=>p.id===id);if(index===0){await change(PartyCollection.renameParty(next,id,''));node.close();return;}
+        const old=next.parties[index],previous=next.parties[index-1];next.achievements.filter(a=>a.partyId===id).forEach(a=>{a.partyId=previous.id;a.tags=(a.tags||[]).filter(t=>t!==old.title);});next.parties.splice(index,1);}
+      await change(next);node.close();};node.showModal();
+  }
   function decorate(){
     for(const section of document.querySelectorAll('.party-section')){
       const partyId=section.dataset.partyId;
-      const tools=el('div',{class:'editor-party-tools'}),rename=el('button',{type:'button'},'Изменить название партии');rename.onclick=()=>partyForm({renameId:partyId});tools.append(rename);
+      const tools=el('div',{class:'editor-party-tools'}),rename=el('button',{type:'button'},'Изменить название партии');rename.onclick=()=>partyForm({renameId:partyId});tools.append(rename);const remove=el('button',{type:'button'},'Удалить разделитель');remove.onclick=()=>removeDraft('party',partyId);tools.append(remove);
       const heading=section.querySelector('.campaign-heading');if(heading)heading.after(tools);else section.prepend(tools);
       const rows=Array.from(section.querySelectorAll('.achievement-row'));
       for(const row of rows){const id=row.dataset.achievementId,controls=el('div',{class:'editor-actions'});
-        for(const [text,callback]of [['+ Ачивка',()=>achievementForm({afterId:id})],['+ Название партии',()=>partyForm({afterId:id})],['Изменить',()=>achievementForm({editId:id})]]){const button=el('button',{type:'button'},text);button.onclick=callback;controls.append(button);}row.after(controls);
+        for(const [text,callback]of [['+ Ачивка',()=>achievementForm({afterId:id})],['+ Название партии',()=>partyForm({afterId:id})],['Изменить',()=>achievementForm({editId:id})],['Удалить',()=>removeDraft('achievement',id)]]){const button=el('button',{type:'button'},text);button.onclick=callback;controls.append(button);}row.after(controls);
       }
       if(!rows.length){const controls=el('div',{class:'editor-actions'}),add=el('button',{type:'button'},'+ Ачивка'),next=el('button',{type:'button'},'+ Следующая партия');add.onclick=()=>achievementForm({partyId});next.onclick=()=>partyForm({afterPartyId:partyId});controls.append(add,next);section.append(controls);}
     }
@@ -94,7 +104,11 @@
     const {node,form}=dialog('Опубликовать для друзей');
     form.append(el('p',{class:'editor-note'},'Ачивки, названия партий и новые картинки будут сохранены на GitHub одной версией. Сайт обновится после публикации GitHub Pages.'));
     const token=field(form,'Ключ GitHub с правом записи в этот репозиторий',el('input',{type:'password',required:'',autocomplete:'off',spellcheck:'false',placeholder:'github_pat_…'}));
-    form.append(el('p',{class:'editor-note'},'Ключ используется только для этой публикации. Он не сохраняется в файлах сайта или черновике.'));
+    const tokenStore='achievement-github-token';
+    try{token.value=localStorage.getItem(tokenStore)||'';}catch{}
+    const remember=field(form,'Запомнить ключ в этом браузере',el('input',{type:'checkbox'}));remember.checked=!!token.value;
+    form.append(el('p',{class:'editor-note'},'Сохранённый ключ доступен этому браузеру и скриптам сайта. На общем компьютере не включай сохранение. В репозиторий и черновик ключ не попадает.'));
+    const forget=el('button',{type:'button',class:'secondary-button'},'Забыть сохранённый ключ');forget.onclick=()=>{localStorage.removeItem(tokenStore);token.value='';remember.checked=false;};form.append(forget);
     const help=el('details',{class:'editor-help'});help.append(el('summary',{},'Как подключить GitHub в первый раз'));
     const list=el('ol');
     const first=el('li');first.append(el('a',{href:'https://github.com/settings/personal-access-tokens/new',target:'_blank',rel:'noopener noreferrer'},'Открой создание fine-grained access token в своём GitHub.'));list.append(first);
@@ -102,11 +116,12 @@
     const label=status(form),buttons=el('div',{class:'editor-form-actions'}),cancel=el('button',{type:'button',class:'secondary-button'},'Отмена'),send=el('button',{type:'submit',class:'primary-button'},'Опубликовать');cancel.onclick=()=>node.close();buttons.append(cancel,send);form.append(buttons);
     form.addEventListener('submit',async event=>{event.preventDefault();if(busy)return;busy=true;send.disabled=true;cancel.disabled=true;label.classList.remove('error');try{
       const collection=api.validate(state.collection),used=new Set(collection.achievements.map(a=>a.image));
-      if(!state.baseSha){
+      try{if(remember.checked)localStorage.setItem(tokenStore,token.value);else localStorage.removeItem(tokenStore);}catch{}
+      {
         label.textContent='Проверяем исходную версию на GitHub…';
         const latest=await AchievementPublisher.snapshot({token:token.value});
         const canonical=value=>JSON.stringify(value,(_,item)=>item&&typeof item==='object'&&!Array.isArray(item)?Object.fromEntries(Object.entries(item).sort(([a],[b])=>a.localeCompare(b))):item);
-        if(canonical(api.validate(latest.collection))!==canonical(state.baselineCollection||api.getCollection()))throw new Error('Исходная версия изменилась. Черновик сохранён; скачай копию и сверь её с последней публикацией.');
+        if(canonical(api.validate(latest.collection))!==canonical(state.baselineCollection||api.getCollection()))throw new Error('Данные на GitHub изменились. Черновик сохранён; скачай копию и сверь её с последней публикацией.');
         state.baseSha=latest.sha;
       }
       const result=await AchievementPublisher.publish({collection,images:state.images.filter(image=>used.has(image.path)),token:token.value,expectedSha:state.baseSha,onProgress:text=>{label.textContent=text;}});
