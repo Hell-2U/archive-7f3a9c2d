@@ -70,8 +70,8 @@ function setCollection(next) {
 }
 function render() {
   document.title = collection.title;
-  $('#page-title').textContent = collection.title;
-  $('#page-description').textContent = collection.description;
+  $('#page-title').textContent = 'Достижения группы';
+  $('#page-description').textContent = 'Памятные моменты наших приключений.';
   const total = collection.achievements.length;
   $('#total-count').textContent = total;
   $('#total-label').textContent = `${plural(total)} в коллекции`;
