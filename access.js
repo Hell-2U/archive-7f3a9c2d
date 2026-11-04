@@ -21,14 +21,14 @@
   }
   function boot() {
     if (!bootPromise) {
-      bootPromise = loadScript('collection.js?v=editor-3')
+      bootPromise = loadScript('collection.js?v=styles-1')
         .then(() => loadScript('data/achievements-data.js?v='+Date.now()))
-        .then(() => loadScript('app.js?v=editor-3'))
+        .then(() => loadScript('app.js?v=styles-1'))
         .then(async()=>{
           if(!window.ACHIEVEMENT_EDITOR_MODE)return;
-          await new Promise((resolve,reject)=>{const style=document.createElement('link');style.rel='stylesheet';style.href='editor.css?v=editor-3';style.onload=resolve;style.onerror=reject;document.head.append(style);});
-          await loadScript('publish.js?v=editor-3');
-          await loadScript('editor.js?v=editor-3');
+          await new Promise((resolve,reject)=>{const style=document.createElement('link');style.rel='stylesheet';style.href='editor.css?v=styles-1';style.onload=resolve;style.onerror=reject;document.head.append(style);});
+          await loadScript('publish.js?v=styles-1');
+          await loadScript('editor.js?v=styles-1');
         });
       bootPromise.catch(() => { bootPromise = null; });
     }

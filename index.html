@@ -7,8 +7,8 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Достижения и памятные моменты нашей группы в D&D.">
   <title>ошибка: 0012</title>
-  <link rel="stylesheet" href="styles.css?v=editor-3">
-  <script src="access.js?v=editor-3" defer></script>
+  <link rel="stylesheet" href="styles.css?v=styles-1">
+  <script src="access.js?v=styles-1" defer></script>
 </head>
 <body class="access-locked">
   <svg class="symbol-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -44,7 +44,11 @@
       </div>
     </section>
     <div class="section-nav">
-      <div class="current-section"><svg class="icon" aria-hidden="true"><use href="#icon-trophy"/></svg>Все достижения <span id="tab-count">96</span></div>
+      <div class="style-tabs" role="tablist" aria-label="Стиль достижений">
+        <button class="current-section style-tab" type="button" role="tab" aria-selected="true" data-style="all">Все ачивки <span id="tab-count">96</span></button>
+        <button class="style-tab" type="button" role="tab" aria-selected="false" data-style="old">Старый стиль <span id="old-style-count">96</span></button>
+        <button class="style-tab" type="button" role="tab" aria-selected="false" data-style="new">Новый стиль <span id="new-style-count">0</span></button>
+      </div>
       <button class="data-button" id="open-data" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-data"/></svg><span>Данные</span></button>
     </div>
     <section class="collection" aria-label="Список достижений">

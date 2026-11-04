@@ -8,6 +8,7 @@ let collection = originalData;
 let visibleRecords = [];
 let selectedId = null;
 let toastTimer;
+let activeStyle = 'all';
 
 function validateCollection(value) {
   if (!value || !Array.isArray(value.achievements)) throw new Error('В файле нужен список achievements.');
@@ -23,7 +24,7 @@ function validateCollection(value) {
     if (ids.has(id)) throw new Error(`Повторяется идентификатор «${id}».`);
     ids.add(id);
     if (record.image && !safeImage(record.image)) throw new Error(`Проверь ссылку на картинку у записи № ${index + 1}. Нужна HTTPS-ссылка или путь внутри сайта.`);
-    return {...record, id, title: record.title.trim(), description: record.description || '', image: record.image || '', imageRendering: record.imageRendering === 'pixelated' ? 'pixelated' : 'auto'};
+    return {...record, artStyle: record.artStyle === 'new' ? 'new' : 'old', id, title: record.title.trim(), description: record.description || '', image: record.image || '', imageRendering: record.imageRendering === 'pixelated' ? 'pixelated' : 'auto'};
   });
   return PartyCollection.normalize({...value, version: 1, title: typeof value.title === 'string' && value.title.trim() ? value.title : 'Наши ачивки', description: typeof value.description === 'string' ? value.description : 'Приколбасные моменты с партий', source: typeof value.source === 'string' ? value.source : '', achievements});
 }
@@ -76,19 +77,27 @@ function render() {
   $('#total-count').textContent = total;
   $('#total-label').textContent = `${plural(total)} в коллекции`;
   $('#tab-count').textContent = total;
+  $('#old-style-count').textContent = collection.achievements.filter(a=>a.artStyle!=='new').length;
+  $('#new-style-count').textContent = collection.achievements.filter(a=>a.artStyle==='new').length;
+  const styleTotal=collection.achievements.filter(a=>activeStyle==='all'||a.artStyle===activeStyle).length;
   const query = normalize($('#search').value.trim());
   const terms = query.split(/\s+/).filter(Boolean);
   const sort = $('#sort').value;
   const groups = PartyCollection.groups(collection,sort === 'reverse').map(group=>({...group,records:group.records.filter(record=>{
     const haystack=normalize(`${record.title} ${record.description} ${group.title} ${(record.tags||[]).join(' ')}`);
-    return terms.every(term=>haystack.includes(term));
-  })})).filter(group=>!query||group.records.length);
+    return (activeStyle==='all'||record.artStyle===activeStyle)&&terms.every(term=>haystack.includes(term));
+  })})).filter(group=>(!query&&activeStyle==='all')||group.records.length);
   visibleRecords = groups.flatMap(group=>group.records);
-  $('#result-count').textContent = query ? `Найдено ${visibleRecords.length} из ${total}` : `${total} ${plural(total)}`;
+  $('#result-count').textContent = query ? `Найдено ${visibleRecords.length} из ${styleTotal}` : `${styleTotal} ${plural(styleTotal)}`;
   $('#empty-state').hidden = visibleRecords.length > 0;
   $('#empty-state h2').textContent = total === 0 ? 'Коллекция пока пуста' : 'Ничего не нашлось';
   $('#empty-state p').textContent = total === 0 ? 'Загрузи достижения через меню «Данные».' : 'Попробуй другое название или слово из описания.';
   $('#clear-search').hidden = total === 0;
+  if(styleTotal===0&&activeStyle!=='all'){
+    $('#empty-state h2').textContent=activeStyle==='new'?'Ачивки нового стиля скоро появятся':'В этом разделе пока нет ачивок';
+    $('#empty-state p').textContent='Здесь будут достижения выбранного стиля.';
+    $('#clear-search').hidden=true;
+  }
   const fragment = document.createDocumentFragment();
   let index = 0;
   for (const group of groups) {
@@ -135,6 +144,11 @@ function toast(message) {
   clearTimeout(toastTimer); $('#toast').textContent = message; $('#toast').hidden = false;
   toastTimer = setTimeout(() => { $('#toast').hidden = true; }, 3500);
 }
+document.querySelectorAll('[data-style]').forEach(tab=>tab.addEventListener('click',()=>{
+  activeStyle=tab.dataset.style;
+  document.querySelectorAll('[data-style]').forEach(item=>{item.setAttribute('aria-selected',String(item===tab));item.classList.toggle('current-section',item===tab);});
+  render();
+}));
 $('#search').addEventListener('input', render);
 $('#sort').addEventListener('change', render);
 $('#clear-search').addEventListener('click', () => { $('#search').value = ''; render(); $('#search').focus(); });

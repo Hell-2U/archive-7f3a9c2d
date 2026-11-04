@@ -48,6 +48,7 @@
     const party=field(form,'Партия',el('select',{}));
     for(const item of state.collection.parties)party.append(el('option',{value:item.id},item.title||'Партия без названия'));
     party.value=existing?.partyId||partyId||anchor?.partyId||state.collection.parties[0]?.id||'';
+    const artStyle=field(form,'Стиль ачивки',el('select',{}));artStyle.append(el('option',{value:'old'},'Старый стиль'),el('option',{value:'new'},'Новый стиль'));artStyle.value=existing?.artStyle|| (existing?'old':'new');
     const file=field(form,existing?'Заменить картинку':'Картинка',el('input',{type:'file',accept:'.png,.jpg,.jpeg,.webp,.avif'}));
     const preview=el('img',{class:'editor-preview',alt:'Предпросмотр картинки',hidden:''});
     const currentImage=existing?.image;if(currentImage){preview.src=overrides.get(currentImage)||currentImage;preview.hidden=false;}form.append(preview);
@@ -62,7 +63,7 @@
         const encoded=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('Не удалось прочитать картинку.'));reader.readAsDataURL(selected);});
         image=`assets/achievements/user-${uuid()}.${extension}`;pending={path:image,mime:selected.type,base64:encoded.split(',')[1]};
       }
-      const record={...(existing||{}),id:existing?.id||'achievement-'+uuid(),title:title.value.trim(),description:description.value.trim(),image,partyId:party.value,imageRendering:pixel.value};
+      const record={...(existing||{}),id:existing?.id||'achievement-'+uuid(),title:title.value.trim(),description:description.value.trim(),artStyle:artStyle.value,image,partyId:party.value,imageRendering:pixel.value};
       const next=PartyCollection.saveAchievement(state.collection,record,existing||anchor?.partyId!==party.value?null:afterId);
       if(pending)state.images.push(pending);
       await change(next);node.close();
@@ -80,6 +81,8 @@
       await change(next);node.close();};node.showModal();
   }
   function decorate(){
+    if(!document.querySelector('.achievement-row') && state.collection.parties.length){const add=el('button',{class:'secondary-button',type:'button'},'+ Добавить ачивку');add.onclick=()=>achievementForm();document.querySelector('#achievement-list').append(add);}
+
     for(const section of document.querySelectorAll('.party-section')){
       const partyId=section.dataset.partyId;
       const tools=el('div',{class:'editor-party-tools'}),rename=el('button',{type:'button'},'Изменить название партии');rename.onclick=()=>partyForm({renameId:partyId});tools.append(rename);const remove=el('button',{type:'button'},'Удалить разделитель');remove.onclick=()=>removeDraft('party',partyId);tools.append(remove);
@@ -121,7 +124,7 @@
         label.textContent='Проверяем исходную версию на GitHub…';
         const latest=await AchievementPublisher.snapshot({token:token.value});
         const canonical=value=>JSON.stringify(value,(_,item)=>item&&typeof item==='object'&&!Array.isArray(item)?Object.fromEntries(Object.entries(item).sort(([a],[b])=>a.localeCompare(b))):item);
-        if(canonical(api.validate(latest.collection))!==canonical(state.baselineCollection||api.getCollection()))throw new Error('Данные на GitHub изменились. Черновик сохранён; скачай копию и сверь её с последней публикацией.');
+        if(canonical(api.validate(latest.collection))!==canonical(api.validate(state.baselineCollection||api.getCollection())))throw new Error('Данные на GitHub изменились. Черновик сохранён; скачай копию и сверь её с последней публикацией.');
         state.baseSha=latest.sha;
       }
       const result=await AchievementPublisher.publish({collection,images:state.images.filter(image=>used.has(image.path)),token:token.value,expectedSha:state.baseSha,onProgress:text=>{label.textContent=text;}});
