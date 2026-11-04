@@ -25,7 +25,7 @@ function validateCollection(value) {
     if (record.image && !safeImage(record.image)) throw new Error(`Проверь ссылку на картинку у записи № ${index + 1}. Нужна HTTPS-ссылка или путь внутри сайта.`);
     return {...record, id, title: record.title.trim(), description: record.description || '', image: record.image || '', imageRendering: record.imageRendering === 'pixelated' ? 'pixelated' : 'auto'};
   });
-  return {...value, version: 1, title: typeof value.title === 'string' && value.title.trim() ? value.title : 'Достижения группы', description: typeof value.description === 'string' ? value.description : 'Памятные моменты наших приключений.', source: typeof value.source === 'string' ? value.source : '', achievements};
+  return PartyCollection.normalize({...value, version: 1, title: typeof value.title === 'string' && value.title.trim() ? value.title : 'Наши ачивки', description: typeof value.description === 'string' ? value.description : 'Приколбасные моменты с партий', source: typeof value.source === 'string' ? value.source : '', achievements});
 }
 
 function safeImage(path) {
@@ -51,7 +51,7 @@ function fallbackImage() { const el = document.createElement('span'); el.classNa
 function imageFor(record, {large = false, eager = false} = {}) {
   if (!record.image) return fallbackImage();
   const img = document.createElement('img');
-  img.src = record.image; img.alt = large ? record.title : '';
+  img.src = window.ACHIEVEMENT_IMAGE_OVERRIDES?.get(record.image) || record.image; img.alt = large ? record.title : '';
   img.loading = eager || large ? 'eager' : 'lazy'; img.decoding = 'async';
   img.referrerPolicy = 'no-referrer';
   if (record.imageRendering === 'pixelated') img.className = 'pixelated';
@@ -76,38 +76,42 @@ function render() {
   $('#total-count').textContent = total;
   $('#total-label').textContent = `${plural(total)} в коллекции`;
   $('#tab-count').textContent = total;
-  $('#source-label').textContent = collection.source;
   const query = normalize($('#search').value.trim());
   const terms = query.split(/\s+/).filter(Boolean);
-  visibleRecords = collection.achievements.filter(record => {
-    const haystack = normalize(`${record.title} ${record.description} ${(record.tags || []).join(' ')}`);
-    return terms.every(term => haystack.includes(term));
-  });
   const sort = $('#sort').value;
-  if (sort !== 'original') visibleRecords.sort((a, b) => a.title.localeCompare(b.title, 'ru') * (sort === 'title-desc' ? -1 : 1));
+  const groups = PartyCollection.groups(collection,sort === 'reverse').map(group=>({...group,records:group.records.filter(record=>{
+    const haystack=normalize(`${record.title} ${record.description} ${group.title} ${(record.tags||[]).join(' ')}`);
+    return terms.every(term=>haystack.includes(term));
+  })})).filter(group=>!query||group.records.length);
+  visibleRecords = groups.flatMap(group=>group.records);
   $('#result-count').textContent = query ? `Найдено ${visibleRecords.length} из ${total}` : `${total} ${plural(total)}`;
   $('#empty-state').hidden = visibleRecords.length > 0;
   $('#empty-state h2').textContent = total === 0 ? 'Коллекция пока пуста' : 'Ничего не нашлось';
   $('#empty-state p').textContent = total === 0 ? 'Загрузи достижения через меню «Данные».' : 'Попробуй другое название или слово из описания.';
   $('#clear-search').hidden = total === 0;
   const fragment = document.createDocumentFragment();
-  let previousCampaign = '';
-  for (const [index, record] of visibleRecords.entries()) {
-    if (sort === 'original' && record.campaign && record.campaign !== previousCampaign) {
-      const heading = document.createElement('h2'); heading.className = 'campaign-heading'; heading.textContent = record.campaign; fragment.append(heading);
+  let index = 0;
+  for (const group of groups) {
+    const section = document.createElement('section'); section.className='party-section'; section.dataset.partyId=group.id;
+    if (group.title || window.ACHIEVEMENT_EDITOR_MODE) {
+      const heading = document.createElement('h2'); heading.className = 'campaign-heading'; heading.textContent = group.title || 'Партия без названия'; section.append(heading);
     }
-    previousCampaign = record.campaign || '';
+    for (const record of group.records) {
     const button = document.createElement('button'); button.type = 'button'; button.className = 'achievement-row';
     button.setAttribute('aria-haspopup', 'dialog');
+    button.dataset.achievementId = record.id;
     const thumb = document.createElement('span'); thumb.className = 'achievement-thumb'; thumb.append(imageFor(record, {eager: index < 7}));
     const content = document.createElement('span'); content.className = 'achievement-content';
     const title = document.createElement('span'); title.className = 'achievement-title'; title.setAttribute('role', 'heading'); title.setAttribute('aria-level', '2'); title.textContent = record.title;
     const description = document.createElement('span'); description.className = 'achievement-description'; description.textContent = record.description;
     content.append(title, description);
     const end = document.createElement('span'); end.className = 'row-end'; end.append(svgIcon('arrow'));
-    button.append(thumb, content, end); button.addEventListener('click', () => openDetail(record.id)); fragment.append(button);
+    button.append(thumb, content, end); button.addEventListener('click', () => openDetail(record.id)); section.append(button); index++;
+    }
+    fragment.append(section);
   }
   $('#achievement-list').replaceChildren(fragment);
+  document.dispatchEvent(new CustomEvent('achievements:rendered'));
 }
 function openDetail(id) {
   const record = visibleRecords.find(item => item.id === id);
@@ -179,4 +183,11 @@ $('#reset-data').addEventListener('click', () => {
   setCollection(originalData); $('#reset-data').hidden = true;
   $('#import-status').classList.remove('error'); $('#import-status').textContent = 'Восстановлена исходная коллекция.';
 });
-restoreCollection(); render();
+window.achievementArchive = {
+  getCollection:()=>structuredClone(collection),
+  setCollection:(next)=>{collection=validateCollection(next);render();},
+  validate:validateCollection,
+  redraw:render,
+};
+if (!window.ACHIEVEMENT_EDITOR_MODE) restoreCollection();
+render();
