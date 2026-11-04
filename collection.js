@@ -15,6 +15,16 @@
         record.partyId = party.id;
       }
     }
+    // A party belongs to one artwork section. Split legacy mixed parties without losing records.
+    for(const party of [...data.parties]){
+      const records=data.achievements.filter(a=>a.partyId===party.id);
+      const hasOld=records.some(a=>a.artStyle!=='new'),hasNew=records.some(a=>a.artStyle==='new');
+      if(hasOld&&hasNew){
+        let id=party.id+'--new-style';while(data.parties.some(p=>p.id===id))id+='-copy';
+        const next={...party,id,artStyle:'new'};data.parties.splice(data.parties.indexOf(party)+1,0,next);
+        records.filter(a=>a.artStyle==='new').forEach(a=>a.partyId=id);party.artStyle='old';
+      }else party.artStyle=hasNew?'new':hasOld?'old':party.artStyle==='new'?'new':'old';
+    }
     const ids = new Set();
     for (const party of data.parties) {
       if (!party || typeof party.id !== 'string' || !party.id || ids.has(party.id) || typeof party.title !== 'string') throw new Error('Проверь названия и идентификаторы партий.');
@@ -31,15 +41,16 @@
     const result = data.parties.map(party=>({...party,records:data.achievements.filter(item=>item.partyId === party.id)}));
     return reverse ? result.reverse() : result;
   }
-  function insertParty(data, {id,title,afterId=null,afterPartyId=null}) {
+  function insertParty(data, {id,title,afterId=null,afterPartyId=null,artStyle=null}) {
     const next = copy(data), anchor = next.achievements.find(item=>item.id === afterId);
     const oldId = anchor?.partyId || afterPartyId;
     const oldIndex = next.parties.findIndex(item=>item.id === oldId);
-    next.parties.splice(oldIndex + 1,0,{id,title});
+    const style=artStyle||anchor?.artStyle||next.parties[oldIndex]?.artStyle||'old';
+    next.parties.splice(oldIndex + 1,0,{id,title,artStyle:style});
     if (anchor) {
       const index = next.achievements.indexOf(anchor);
       for (const record of next.achievements.slice(index + 1)) {
-        if (record.partyId !== oldId) continue;
+        if (record.partyId !== oldId || (record.artStyle==='new'?'new':'old')!==style) continue;
         record.partyId = id; record.campaign = title;
       }
     }

@@ -86,7 +86,7 @@ function render() {
   const groups = PartyCollection.groups(collection,sort === 'reverse').map(group=>({...group,records:group.records.filter(record=>{
     const haystack=normalize(`${record.title} ${record.description} ${group.title} ${(record.tags||[]).join(' ')}`);
     return (activeStyle==='all'||record.artStyle===activeStyle)&&terms.every(term=>haystack.includes(term));
-  })})).filter(group=>(!query&&activeStyle==='all')||group.records.length);
+  })})).filter(group=>(!query&&(activeStyle==='all'||group.artStyle===activeStyle))||group.records.length);
   visibleRecords = groups.flatMap(group=>group.records);
   $('#result-count').textContent = query ? `Найдено ${visibleRecords.length} из ${styleTotal}` : `${styleTotal} ${plural(styleTotal)}`;
   $('#empty-state').hidden = visibleRecords.length > 0;

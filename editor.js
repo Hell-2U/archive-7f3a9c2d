@@ -30,13 +30,14 @@
   function formFooter(form,node){const buttons=el('div',{class:'editor-form-actions'}),cancel=el('button',{type:'button',class:'secondary-button'},'Отмена'),save=el('button',{type:'submit',class:'primary-button'},'Сохранить в черновик');cancel.onclick=()=>node.close();buttons.append(cancel,save);form.append(buttons);return save;}
   function status(form){const label=el('p',{class:'editor-status',role:'status','aria-live':'polite'});form.append(label);return label;}
   function error(label,err){label.classList.add('error');label.textContent=err.message||'Не удалось сохранить изменение.';}
+  const selectedStyle=()=>document.querySelector('[data-style][aria-selected="true"]')?.dataset.style||'all';
   function partyForm({afterId=null,afterPartyId=null,renameId=null}={}){
     const {node,form}=dialog(renameId?'Название партии':'Новая партия');
     const title=field(form,'Название',el('input',{required:'',maxlength:'200',autocomplete:'off'}));
     if(renameId)title.value=state.collection.parties.find(p=>p.id===renameId)?.title||'';
     if(afterId)form.append(el('p',{class:'editor-note'},'Новый раздел начнётся после выбранной ачивки. Остальные ачивки текущей партии после неё перейдут в этот раздел.'));
     const label=status(form);formFooter(form,node);
-    form.addEventListener('submit',async event=>{event.preventDefault();if(!title.value.trim())return;try{const data=renameId?PartyCollection.renameParty(state.collection,renameId,title.value.trim()):PartyCollection.insertParty(state.collection,{id:'party-'+uuid(),title:title.value.trim(),afterId,afterPartyId});await change(data);node.close();}catch(err){error(label,err);}});
+    form.addEventListener('submit',async event=>{event.preventDefault();if(!title.value.trim())return;try{const data=renameId?PartyCollection.renameParty(state.collection,renameId,title.value.trim()):PartyCollection.insertParty(state.collection,{id:'party-'+uuid(),title:title.value.trim(),afterId,afterPartyId,artStyle:selectedStyle()==='all'?null:selectedStyle()});await change(data);node.close();}catch(err){error(label,err);}});
     node.showModal();title.focus();
   }
   function achievementForm({afterId=null,partyId=null,editId=null}={}){
@@ -46,9 +47,10 @@
     const title=field(form,'Название',el('input',{required:'',maxlength:'500',autocomplete:'off'}));title.value=existing?.title||'';
     const description=field(form,'Описание',el('textarea',{rows:'4',maxlength:'15000'}));description.value=existing?.description||'';
     const party=field(form,'Партия',el('select',{}));
-    for(const item of state.collection.parties)party.append(el('option',{value:item.id},item.title||'Партия без названия'));
-    party.value=existing?.partyId||partyId||anchor?.partyId||state.collection.parties[0]?.id||'';
-    const artStyle=field(form,'Стиль ачивки',el('select',{}));artStyle.append(el('option',{value:'old'},'Старый стиль'),el('option',{value:'new'},'Новый стиль'));artStyle.value=existing?.artStyle|| (existing?'old':'new');
+    const artStyle=field(form,'Стиль ачивки',el('select',{}));artStyle.append(el('option',{value:'old'},'Старый стиль'),el('option',{value:'new'},'Новый стиль'));artStyle.value=existing?.artStyle||(selectedStyle()==='old'?'old':'new');
+    const newPartyTitle=field(form,'Название новой партии',el('input',{maxlength:'200',autocomplete:'off'}));
+    function fillParties(){party.replaceChildren();for(const item of state.collection.parties.filter(p=>p.artStyle===artStyle.value))party.append(el('option',{value:item.id},item.title||'Партия без названия'));party.append(el('option',{value:'__new__'},'+ Новая партия'));const preferred=existing?.partyId||partyId||anchor?.partyId;if([...party.options].some(o=>o.value===preferred))party.value=preferred;newPartyTitle.parentElement.hidden=party.value!=='__new__';newPartyTitle.required=party.value==='__new__';}
+    party.onchange=()=>{newPartyTitle.parentElement.hidden=party.value!=='__new__';newPartyTitle.required=party.value==='__new__';};artStyle.onchange=fillParties;fillParties();
     const file=field(form,existing?'Заменить картинку':'Картинка',el('input',{type:'file',accept:'.png,.jpg,.jpeg,.webp,.avif'}));
     const preview=el('img',{class:'editor-preview',alt:'Предпросмотр картинки',hidden:''});
     const currentImage=existing?.image;if(currentImage){preview.src=overrides.get(currentImage)||currentImage;preview.hidden=false;}form.append(preview);
@@ -63,8 +65,10 @@
         const encoded=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('Не удалось прочитать картинку.'));reader.readAsDataURL(selected);});
         image=`assets/achievements/user-${uuid()}.${extension}`;pending={path:image,mime:selected.type,base64:encoded.split(',')[1]};
       }
-      const record={...(existing||{}),id:existing?.id||'achievement-'+uuid(),title:title.value.trim(),description:description.value.trim(),artStyle:artStyle.value,image,partyId:party.value,imageRendering:pixel.value};
-      const next=PartyCollection.saveAchievement(state.collection,record,existing||anchor?.partyId!==party.value?null:afterId);
+      let collection=state.collection,chosenParty=party.value;
+      if(chosenParty==='__new__'){chosenParty='party-'+uuid();collection=PartyCollection.insertParty(collection,{id:chosenParty,title:newPartyTitle.value.trim(),afterPartyId:collection.parties.at(-1)?.id,artStyle:artStyle.value});}
+      const record={...(existing||{}),id:existing?.id||'achievement-'+uuid(),title:title.value.trim(),description:description.value.trim(),artStyle:artStyle.value,image,partyId:chosenParty,imageRendering:pixel.value};
+      const next=PartyCollection.saveAchievement(collection,record,existing||anchor?.partyId!==chosenParty?null:afterId);
       if(pending)state.images.push(pending);
       await change(next);node.close();
     }catch(err){error(label,err);}finally{save.disabled=false;}});
@@ -76,12 +80,12 @@
     const save=formFooter(form,node);save.textContent='Удалить из черновика';
     form.onsubmit=async event=>{event.preventDefault();const next=structuredClone(state.collection);
       if(kind==='achievement')next.achievements=next.achievements.filter(a=>a.id!==id);
-      else{const index=next.parties.findIndex(p=>p.id===id);if(index===0){await change(PartyCollection.renameParty(next,id,''));node.close();return;}
-        const old=next.parties[index],previous=next.parties[index-1];next.achievements.filter(a=>a.partyId===id).forEach(a=>{a.partyId=previous.id;a.tags=(a.tags||[]).filter(t=>t!==old.title);});next.parties.splice(index,1);}
+      else{const index=next.parties.findIndex(p=>p.id===id),previous=next.parties.slice(0,index).findLast(p=>p.artStyle===next.parties[index].artStyle);if(!previous){await change(PartyCollection.renameParty(next,id,''));node.close();return;}
+        const old=next.parties[index];next.achievements.filter(a=>a.partyId===id).forEach(a=>{a.partyId=previous.id;a.tags=(a.tags||[]).filter(t=>t!==old.title);});next.parties.splice(index,1);}
       await change(next);node.close();};node.showModal();
   }
   function decorate(){
-    if(!document.querySelector('.achievement-row') && state.collection.parties.length){const add=el('button',{class:'secondary-button',type:'button'},'+ Добавить ачивку');add.onclick=()=>achievementForm();document.querySelector('#achievement-list').append(add);}
+    if(!document.querySelector('.party-section')){const add=el('button',{class:'secondary-button',type:'button'},'+ Новая партия');add.onclick=()=>partyForm({afterPartyId:state.collection.parties.at(-1)?.id});document.querySelector('#achievement-list').append(add);}
 
     for(const section of document.querySelectorAll('.party-section')){
       const partyId=section.dataset.partyId;
@@ -143,6 +147,17 @@
   }
   publishButton.onclick=publishForm;
   const draft=await readDraft();
+  let repairedDraft=false;
+  if(draft?.collection){
+    const raw=draft.collection;
+    const mixed=raw.parties?.filter(p=>raw.achievements.some(a=>a.partyId===p.id&&a.artStyle==='new')&&raw.achievements.some(a=>a.partyId===p.id&&a.artStyle!=='new'))||[];
+    if(mixed.length){
+      if(db)await new Promise(resolve=>{const tx=db.transaction('draft','readwrite');tx.objectStore('draft').put(structuredClone(draft),'before-style-repair');tx.oncomplete=resolve;tx.onerror=resolve;});
+      const fixed=api.validate(raw);
+      for(const party of mixed){const previous=draft.baselineCollection?.parties?.find(p=>p.id===party.id);if(previous){fixed.parties.find(p=>p.id===party.id).title=previous.title;fixed.achievements.filter(a=>a.partyId===party.id).forEach(a=>{a.tags=(a.tags||[]).filter(t=>t!==party.title);if(previous.title&&!a.tags.includes(previous.title))a.tags.push(previous.title);});}}
+      draft.collection=api.validate(fixed);draft.dirty=true;repairedDraft=true;
+    }
+  }
   try{
     const latest=await AchievementPublisher.snapshot();
     publishedSeed=api.validate(latest.collection);publishedSha=latest.sha;
@@ -150,5 +165,6 @@
     else{const collection=api.validate(latest.collection);state={collection,baselineCollection:structuredClone(collection),images:[],baseSha:latest.sha,dirty:false};setStatus('Открыта последняя опубликованная версия');}
   }catch{if(draft){state=draft;state.collection=api.validate(state.collection);}setStatus('Можно редактировать. Подключи GitHub при публикации — он проверит исходную версию.');}
   updatePreview();
+  if(repairedDraft){await saveDraft();setStatus('Стили разделены. Старые названия восстановлены, новые ачивки сохранены в отдельных партиях.');}
   addEventListener('beforeunload',event=>{if(busy){event.preventDefault();event.returnValue='';}});
 })();
