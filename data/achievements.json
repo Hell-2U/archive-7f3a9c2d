@@ -1419,6 +1419,36 @@
       "imageRendering": "pixelated",
       "campaign": "Фортунград",
       "artStyle": "old"
+    },
+    {
+      "id": "achievement-101c89d7-b16a-499d-bbc0-524b2c17497d",
+      "title": "“Я знаю эту dh’oine!”",
+      "description": "Встретить вашего злейшего противника, воскресшего и сохранившего лютую ненависть к вам.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-e5efaeee-97d3-47a7-883d-14ef5b5405da.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "campaign": "“Конвергенция пяти источников магии”"
+    },
+    {
+      "id": "achievement-b646d571-389b-428c-8bb4-5c5f1ade163d",
+      "title": "“Мы выиграли, а по итогу проиграли?”",
+      "description": "Осознайте что после победы над врагами, они всё равно забрали то что хотели и ушли не получив даже синяка.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-16ab2d00-8540-43da-9082-6791504572dd.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "campaign": "“Конвергенция пяти источников магии”"
+    },
+    {
+      "id": "achievement-d5758910-9d2f-4d8f-9f96-a9066ef3d82d",
+      "title": "Это не лопата и не кирка",
+      "description": "Уничтожьте семейную реликвию используя её не по назначению.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-80e6d24a-6d97-418c-af3f-638957a9775e.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "campaign": "“Конвергенция пяти источников магии”"
     }
   ],
   "parties": [
@@ -1430,6 +1460,11 @@
     {
       "id": "party-001--new-style",
       "title": "“Земли террора”",
+      "artStyle": "new"
+    },
+    {
+      "id": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "title": "“Конвергенция пяти источников магии”",
       "artStyle": "new"
     },
     {
