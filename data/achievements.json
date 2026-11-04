@@ -16,7 +16,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "curtain-call",
@@ -30,7 +31,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "almost-a-saint",
@@ -44,7 +46,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "unexpected-strike",
@@ -58,7 +61,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "the-bigger-they-are",
@@ -72,7 +76,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "achievement-006",
@@ -86,7 +91,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "achievement-007",
@@ -100,7 +106,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "achievement-008",
@@ -114,7 +121,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "achievement-009",
@@ -128,7 +136,8 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
-      ]
+      ],
+      "artStyle": "old"
     },
     {
       "id": "achievement-010",
@@ -142,7 +151,161 @@
       "campaign": "Класика",
       "tags": [
         "Класика"
+      ],
+      "artStyle": "old"
+    },
+    {
+      "id": "achievement-79079cb9-3652-4e9d-84d0-21a891d0b662",
+      "title": "Не я это даже за деньги не куплю.",
+      "description": "Украдите настолько тёмный артефакт, что его даже нельзя продать.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-a4a3d50c-ef32-469d-9783-c3c0ee71ba50.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”",
+      "tags": [
+        "“Земли террора”"
       ]
+    },
+    {
+      "id": "achievement-62066905-73b2-4f30-829a-13bdaebdcd2a",
+      "title": "Die, die, die!",
+      "description": "Убейте одним заклинанием первого круга четверых противников за раз.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-ef9c77fb-0d89-4617-b887-d4413b792c57.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-8abf86ce-e322-4b15-835f-0c722c40dd6d",
+      "title": "Подражая великим",
+      "description": "Запустите себя из пушки, для более быстрого перемещения.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-bb65a638-8860-44a7-a4c7-9cc7fcb17c72.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-b99d5365-73e5-4351-9b08-02d799a8d680",
+      "title": "Собеседование с дьяволом",
+      "description": "Подпишите рабочий контракт на неизвестном языке.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-e7082890-5a44-4c6d-861b-45534e27b9b3.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-89d4db32-cc7d-4b91-b4bb-e9d1a838abc5",
+      "title": "Брих Локен из Морниваля",
+      "description": "Заслужите уважение и станьте приближенным главы паладинов - Хоруса Элебара",
+      "artStyle": "new",
+      "image": "assets/achievements/user-7197c47b-2007-4a42-b72a-e0df7ce98a66.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-ff076314-4111-40ca-b418-35641b963bd4",
+      "title": "Начало положено…",
+      "description": "Станьте первым Брих-инфицированным.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-f1e02da1-9883-4d83-abc2-5b28acd11f01.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-f4095133-d33e-407c-85b7-ad4cdde0cfbc",
+      "title": "Званый ужин",
+      "description": "Не опозориться на ужине.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-8cd15d9e-a9e5-4b8c-b8ef-f4cffb18eb0f.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-f52c8ec3-ae87-477d-a257-8c10f23963b6",
+      "title": "Воспоминания о смерти",
+      "description": "Вспомните свою смерть во всех подробностях.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-9a315b9f-fe0f-4ab9-9300-4ed690957d9d.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-f24c7cf3-ef4a-4634-aa73-4bd8663511a3",
+      "title": "На пути к восстановлению…",
+      "description": "Сделать первый шаг на пути к возвращению собственной идентичности",
+      "artStyle": "new",
+      "image": "assets/achievements/user-e271f7fb-ba1d-4292-ba0c-a5367e4bce53.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-0d5bfde8-4066-4f2c-a777-13c1ec9e93a0",
+      "title": "Мексиканская дуэль",
+      "description": "Начать бой у которого четыре разные стороны конфликта.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-cce90ed8-c7d9-483c-8e5a-86aa02de141c.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-70e746e1-2273-4f06-a676-6cdaadb7c4c3",
+      "title": "-Эээ куда?!",
+      "description": "Украдите у Хоруса его молот прямо из рук.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-288283df-8b89-4f3e-b295-e4bf92e07983.png",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-1e61a182-63d6-4fd6-81e8-a7a3bc88c26a",
+      "title": "У меня только один вопрос:”Как?”",
+      "description": "Убедительно объясните торговцу откуда у вас молот паладина и труп для продажи.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-e78da0db-8aef-40cc-b486-906e2eb73cf8.jpg",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-0fa03f79-9ebd-4820-8031-f11f24d5af30",
+      "title": "Эффектное появление",
+      "description": "Эффектно презентуйте товарища.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-2c20e549-5297-45f9-b68b-dbd1920e1962.jpg",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-f2ff9f1c-4b7a-408a-b142-a02875eacc26",
+      "title": "Ночной Октоберфест.",
+      "description": "Проведите пивной фестиваль напротив храма.",
+      "artStyle": "new",
+      "image": "",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
+    },
+    {
+      "id": "achievement-fe0b8df0-2c12-4b0b-9ad1-1763b81aa281",
+      "title": "Я многозадачный.",
+      "description": "Хорошо поработайте на фестивале…",
+      "artStyle": "new",
+      "image": "",
+      "partyId": "party-001--new-style",
+      "imageRendering": "auto",
+      "campaign": "“Земли террора”"
     },
     {
       "id": "achievement-011",
@@ -153,7 +316,8 @@
       "sourceOrder": 11,
       "sourceImage": "11.jpg",
       "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
-      "campaign": "Трое мертвецов, не считая собаки"
+      "campaign": "Трое мертвецов, не считая собаки",
+      "artStyle": "old"
     },
     {
       "id": "achievement-012",
@@ -165,7 +329,8 @@
       "sourceImage": "12.jpg",
       "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
       "campaign": "Трое мертвецов, не считая собаки",
-      "tags": []
+      "tags": [],
+      "artStyle": "old"
     },
     {
       "id": "achievement-013",
@@ -177,7 +342,8 @@
       "sourceImage": "13.jpg",
       "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
       "campaign": "Трое мертвецов, не считая собаки",
-      "tags": []
+      "tags": [],
+      "artStyle": "old"
     },
     {
       "id": "achievement-014",
@@ -189,7 +355,8 @@
       "sourceImage": "14.jpg",
       "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
       "campaign": "Трое мертвецов, не считая собаки",
-      "tags": []
+      "tags": [],
+      "artStyle": "old"
     },
     {
       "id": "achievement-015",
@@ -201,7 +368,8 @@
       "sourceImage": "15.jpg",
       "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
       "campaign": "Трое мертвецов, не считая собаки",
-      "tags": []
+      "tags": [],
+      "artStyle": "old"
     },
     {
       "id": "achievement-016",
@@ -212,7 +380,8 @@
       "sourceOrder": 16,
       "sourceImage": "16.jpg",
       "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
-      "campaign": "(Почти) Сказочный финал"
+      "campaign": "(Почти) Сказочный финал",
+      "artStyle": "old"
     },
     {
       "id": "achievement-017",
@@ -223,7 +392,8 @@
       "sourceOrder": 17,
       "sourceImage": "17.jpg",
       "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
-      "campaign": "(Почти) Сказочный финал"
+      "campaign": "(Почти) Сказочный финал",
+      "artStyle": "old"
     },
     {
       "id": "achievement-018",
@@ -234,7 +404,8 @@
       "sourceOrder": 18,
       "sourceImage": "18.jpg",
       "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
-      "campaign": "(Почти) Сказочный финал"
+      "campaign": "(Почти) Сказочный финал",
+      "artStyle": "old"
     },
     {
       "id": "achievement-019",
@@ -245,7 +416,8 @@
       "sourceOrder": 19,
       "sourceImage": "19.jpg",
       "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
-      "campaign": "(Почти) Сказочный финал"
+      "campaign": "(Почти) Сказочный финал",
+      "artStyle": "old"
     },
     {
       "id": "achievement-020",
@@ -256,7 +428,8 @@
       "sourceOrder": 20,
       "sourceImage": "20.jpg",
       "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
-      "campaign": "(Почти) Сказочный финал"
+      "campaign": "(Почти) Сказочный финал",
+      "artStyle": "old"
     },
     {
       "id": "achievement-021",
@@ -267,7 +440,8 @@
       "sourceOrder": 21,
       "sourceImage": "21.jpg",
       "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
-      "campaign": "(Почти) Сказочный финал"
+      "campaign": "(Почти) Сказочный финал",
+      "artStyle": "old"
     },
     {
       "id": "achievement-022",
@@ -278,7 +452,8 @@
       "sourceOrder": 22,
       "sourceImage": "22.jpg",
       "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
-      "campaign": "(Почти) Сказочный финал"
+      "campaign": "(Почти) Сказочный финал",
+      "artStyle": "old"
     },
     {
       "id": "achievement-023",
@@ -289,7 +464,8 @@
       "sourceOrder": 23,
       "sourceImage": "23.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-024",
@@ -300,7 +476,8 @@
       "sourceOrder": 24,
       "sourceImage": "24.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-025",
@@ -311,7 +488,8 @@
       "sourceOrder": 25,
       "sourceImage": "25.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-026",
@@ -322,7 +500,8 @@
       "sourceOrder": 26,
       "sourceImage": "26.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-027",
@@ -333,7 +512,8 @@
       "sourceOrder": 27,
       "sourceImage": "27.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-028",
@@ -344,7 +524,8 @@
       "sourceOrder": 28,
       "sourceImage": "28.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-029",
@@ -355,7 +536,8 @@
       "sourceOrder": 29,
       "sourceImage": "29.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-030",
@@ -366,7 +548,8 @@
       "sourceOrder": 30,
       "sourceImage": "30.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-031",
@@ -377,7 +560,8 @@
       "sourceOrder": 31,
       "sourceImage": "31.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-032",
@@ -388,7 +572,8 @@
       "sourceOrder": 32,
       "sourceImage": "32.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-033",
@@ -399,7 +584,8 @@
       "sourceOrder": 33,
       "sourceImage": "33.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-034",
@@ -410,7 +596,8 @@
       "sourceOrder": 34,
       "sourceImage": "34.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-035",
@@ -421,7 +608,8 @@
       "sourceOrder": 35,
       "sourceImage": "35.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-036",
@@ -432,7 +620,8 @@
       "sourceOrder": 36,
       "sourceImage": "36.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-037",
@@ -443,7 +632,8 @@
       "sourceOrder": 37,
       "sourceImage": "37.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-038",
@@ -454,7 +644,8 @@
       "sourceOrder": 38,
       "sourceImage": "38.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-039",
@@ -465,7 +656,8 @@
       "sourceOrder": 39,
       "sourceImage": "39.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-040",
@@ -476,7 +668,8 @@
       "sourceOrder": 40,
       "sourceImage": "40.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-041",
@@ -487,7 +680,8 @@
       "sourceOrder": 41,
       "sourceImage": "41.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-042",
@@ -498,7 +692,8 @@
       "sourceOrder": 42,
       "sourceImage": "42.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-043",
@@ -509,7 +704,8 @@
       "sourceOrder": 43,
       "sourceImage": "43.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-044",
@@ -520,7 +716,8 @@
       "sourceOrder": 44,
       "sourceImage": "44.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-045",
@@ -531,7 +728,8 @@
       "sourceOrder": 45,
       "sourceImage": "45.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-046",
@@ -542,7 +740,8 @@
       "sourceOrder": 46,
       "sourceImage": "46.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-047",
@@ -553,7 +752,8 @@
       "sourceOrder": 47,
       "sourceImage": "47.jpg",
       "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "campaign": "Архемская рапсодия"
+      "campaign": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "achievement-048",
@@ -564,7 +764,8 @@
       "sourceOrder": 48,
       "sourceImage": "48.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-049",
@@ -575,7 +776,8 @@
       "sourceOrder": 49,
       "sourceImage": "49.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-050",
@@ -586,7 +788,8 @@
       "sourceOrder": 50,
       "sourceImage": "50.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-051",
@@ -597,7 +800,8 @@
       "sourceOrder": 51,
       "sourceImage": "51.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-052",
@@ -608,7 +812,8 @@
       "sourceOrder": 52,
       "sourceImage": "52.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-053",
@@ -619,7 +824,8 @@
       "sourceOrder": 53,
       "sourceImage": "53.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-054",
@@ -630,7 +836,8 @@
       "sourceOrder": 54,
       "sourceImage": "54.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-055",
@@ -641,7 +848,8 @@
       "sourceOrder": 55,
       "sourceImage": "55.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-056",
@@ -652,7 +860,8 @@
       "sourceOrder": 56,
       "sourceImage": "56.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-057",
@@ -663,7 +872,8 @@
       "sourceOrder": 57,
       "sourceImage": "57.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-058",
@@ -674,7 +884,8 @@
       "sourceOrder": 58,
       "sourceImage": "58.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-059",
@@ -685,7 +896,8 @@
       "sourceOrder": 59,
       "sourceImage": "59.jpg",
       "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "campaign": "Класика"
+      "campaign": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "achievement-060",
@@ -696,7 +908,8 @@
       "sourceOrder": 60,
       "sourceImage": "60.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-061",
@@ -707,7 +920,8 @@
       "sourceOrder": 61,
       "sourceImage": "61.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-062",
@@ -718,7 +932,8 @@
       "sourceOrder": 62,
       "sourceImage": "62.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-063",
@@ -729,7 +944,8 @@
       "sourceOrder": 63,
       "sourceImage": "63.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-064",
@@ -740,7 +956,8 @@
       "sourceOrder": 64,
       "sourceImage": "64.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-065",
@@ -751,7 +968,8 @@
       "sourceOrder": 65,
       "sourceImage": "65.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-066",
@@ -762,7 +980,8 @@
       "sourceOrder": 66,
       "sourceImage": "66.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-067",
@@ -773,7 +992,8 @@
       "sourceOrder": 67,
       "sourceImage": "67.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-068",
@@ -784,7 +1004,8 @@
       "sourceOrder": 68,
       "sourceImage": "68.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-069",
@@ -795,7 +1016,8 @@
       "sourceOrder": 69,
       "sourceImage": "69.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-070",
@@ -806,7 +1028,8 @@
       "sourceOrder": 70,
       "sourceImage": "70.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-071",
@@ -817,7 +1040,8 @@
       "sourceOrder": 71,
       "sourceImage": "71.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-072",
@@ -828,7 +1052,8 @@
       "sourceOrder": 72,
       "sourceImage": "72.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-073",
@@ -839,7 +1064,8 @@
       "sourceOrder": 73,
       "sourceImage": "73.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-074",
@@ -850,7 +1076,8 @@
       "sourceOrder": 74,
       "sourceImage": "74.jpg",
       "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "campaign": "Страх и ненависть на арене"
+      "campaign": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "achievement-075",
@@ -864,7 +1091,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "75.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-076",
@@ -878,7 +1106,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "76.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-077",
@@ -892,7 +1121,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "77.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-078",
@@ -906,7 +1136,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "78.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-079",
@@ -920,7 +1151,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "79.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-080",
@@ -934,7 +1166,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "80.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-081",
@@ -948,7 +1181,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "81.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-082",
@@ -962,7 +1196,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "82.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-083",
@@ -976,7 +1211,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "83.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-084",
@@ -990,7 +1226,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "84.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-085",
@@ -1004,7 +1241,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "85.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-086",
@@ -1018,7 +1256,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "86.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-087",
@@ -1032,7 +1271,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "87.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-088",
@@ -1046,7 +1286,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "88.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-089",
@@ -1060,7 +1301,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "89.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-090",
@@ -1074,7 +1316,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "90.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-091",
@@ -1088,7 +1331,8 @@
         "Пески ужаса"
       ],
       "sourceImage": "91.jpg",
-      "partyId": "party-002"
+      "partyId": "party-002",
+      "artStyle": "old"
     },
     {
       "id": "achievement-092",
@@ -1102,7 +1346,8 @@
         "Фортунград"
       ],
       "sourceImage": "92.jpg",
-      "partyId": "party-003"
+      "partyId": "party-003",
+      "artStyle": "old"
     },
     {
       "id": "achievement-093",
@@ -1116,7 +1361,8 @@
         "Фортунград"
       ],
       "sourceImage": "93.jpg",
-      "partyId": "party-003"
+      "partyId": "party-003",
+      "artStyle": "old"
     },
     {
       "id": "achievement-094",
@@ -1131,7 +1377,8 @@
       ],
       "sourceImage": "93.jpg",
       "sourceRevision": "previous-import",
-      "partyId": "party-003"
+      "partyId": "party-003",
+      "artStyle": "old"
     },
     {
       "id": "achievement-095",
@@ -1145,7 +1392,8 @@
         "Фортунград"
       ],
       "sourceImage": "94.jpg",
-      "partyId": "party-003"
+      "partyId": "party-003",
+      "artStyle": "old"
     },
     {
       "id": "achievement-096",
@@ -1159,41 +1407,65 @@
         "Фортунград"
       ],
       "sourceImage": "95.jpg",
-      "partyId": "party-003"
+      "partyId": "party-003",
+      "artStyle": "old"
+    },
+    {
+      "id": "achievement-42f9d2a4-a1d1-4900-8983-b6beccca0f8f",
+      "title": "ЭТО НЕ МОЛОКО!!!",
+      "description": "Раскусите обман бармена (special for Семён Коновалов)",
+      "image": "assets/achievements/user-7b7488a0-999b-45b6-b4b3-6bfcde42a7f6.png",
+      "partyId": "party-003",
+      "imageRendering": "pixelated",
+      "campaign": "Фортунград",
+      "artStyle": "old"
     }
   ],
   "parties": [
     {
       "id": "party-001",
-      "title": "Класика"
+      "title": "Класика",
+      "artStyle": "old"
+    },
+    {
+      "id": "party-001--new-style",
+      "title": "“Земли террора”",
+      "artStyle": "new"
     },
     {
       "id": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
-      "title": "Трое мертвецов, не считая собаки"
+      "title": "Трое мертвецов, не считая собаки",
+      "artStyle": "old"
     },
     {
       "id": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
-      "title": "(Почти) Сказочный финал"
+      "title": "(Почти) Сказочный финал",
+      "artStyle": "old"
     },
     {
       "id": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
-      "title": "Архемская рапсодия"
+      "title": "Архемская рапсодия",
+      "artStyle": "old"
     },
     {
       "id": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
-      "title": "Класика"
+      "title": "Класика",
+      "artStyle": "old"
     },
     {
       "id": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
-      "title": "Страх и ненависть на арене"
+      "title": "Страх и ненависть на арене",
+      "artStyle": "old"
     },
     {
       "id": "party-002",
-      "title": "Пески ужаса"
+      "title": "Пески ужаса",
+      "artStyle": "old"
     },
     {
       "id": "party-003",
-      "title": "Фортунград"
+      "title": "Фортунград",
+      "artStyle": "old"
     }
   ]
 }
