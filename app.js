@@ -66,7 +66,7 @@ function restoreCollection() {
   } catch { collection = originalData; }
 }
 function setCollection(next) {
-  collection = next; $('#search').value = ''; $('#sort').value = 'original';
+  collection = next; if(!window.ACHIEVEMENT_EDITOR_MODE){$('#search').value = ''; $('#sort').value = 'original';}
   render();
 }
 function render() {

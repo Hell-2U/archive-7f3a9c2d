@@ -86,6 +86,13 @@
     for(const section of document.querySelectorAll('.party-section')){
       const partyId=section.dataset.partyId;
       const tools=el('div',{class:'editor-party-tools'}),rename=el('button',{type:'button'},'Изменить название партии');rename.onclick=()=>partyForm({renameId:partyId});tools.append(rename);const remove=el('button',{type:'button'},'Удалить разделитель');remove.onclick=()=>removeDraft('party',partyId);tools.append(remove);
+      const reversed=document.querySelector('#sort').value==='reverse';
+      const ordered=PartyCollection.groups(state.collection,reversed),position=ordered.findIndex(p=>p.id===partyId);
+      for(const [text,step,disabled]of [['↑ Выше',-1,position===0],['↓ Ниже',1,position===ordered.length-1]]){
+        const move=el('button',{type:'button','aria-label':text.slice(2)+' партию '+(ordered[position]?.title||'без названия')},text);
+        move.disabled=disabled;move.onclick=async()=>{await change(PartyCollection.moveParty(state.collection,partyId,reversed?-step:step));document.querySelector(`[data-party-id="${CSS.escape(partyId)}"] .editor-party-tools`)?.scrollIntoView({block:'nearest'});};tools.append(move);
+      }
+
       const heading=section.querySelector('.campaign-heading');if(heading)heading.after(tools);else section.prepend(tools);
       const rows=Array.from(section.querySelectorAll('.achievement-row'));
       for(const row of rows){const id=row.dataset.achievementId,controls=el('div',{class:'editor-actions'});

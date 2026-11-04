@@ -59,5 +59,13 @@
     else {const last=next.achievements.findLastIndex(item=>item.partyId===record.partyId);next.achievements.splice(last<0?next.achievements.length:last+1,0,record);}
     return normalize(next);
   }
-  globalThis.PartyCollection = {normalize,groups,insertParty,renameParty,saveAchievement};
+  function moveParty(data,id,step) {
+    const next=copy(data),index=next.parties.findIndex(p=>p.id===id),target=index+step;
+    if(index<0||![-1,1].includes(step)||target<0||target>=next.parties.length)return next;
+    [next.parties[index],next.parties[target]]=[next.parties[target],next.parties[index]];
+    // Keep the exported array in the same party order, preserving order inside each party.
+    next.achievements=groups(next).flatMap(p=>p.records);
+    return normalize(next);
+  }
+  globalThis.PartyCollection = {normalize,groups,insertParty,renameParty,saveAchievement,moveParty};
 })();
