@@ -13,7 +13,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 1,
       "sourceImage": "1.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "curtain-call",
@@ -24,7 +27,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 2,
       "sourceImage": "2.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "almost-a-saint",
@@ -35,7 +41,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 3,
       "sourceImage": "3.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "unexpected-strike",
@@ -46,7 +55,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 4,
       "sourceImage": "4.png",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "the-bigger-they-are",
@@ -57,7 +69,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 5,
       "sourceImage": "5.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "achievement-006",
@@ -68,7 +83,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 6,
       "sourceImage": "6.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "achievement-007",
@@ -79,7 +97,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 7,
       "sourceImage": "7.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "achievement-008",
@@ -90,7 +111,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 8,
       "sourceImage": "8.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "achievement-009",
@@ -101,7 +125,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 9,
       "sourceImage": "9.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "achievement-010",
@@ -112,7 +139,10 @@ window.ACHIEVEMENT_DATA = {
       "sourceOrder": 10,
       "sourceImage": "10.jpg",
       "partyId": "party-001",
-      "campaign": ""
+      "campaign": "Класика",
+      "tags": [
+        "Класика"
+      ]
     },
     {
       "id": "achievement-011",
@@ -122,8 +152,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 11,
       "sourceImage": "11.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
+      "campaign": "Трое мертвецов, не считая собаки"
     },
     {
       "id": "achievement-012",
@@ -133,8 +163,9 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 12,
       "sourceImage": "12.jpg",
-      "partyId": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
-      "campaign": "Трое мертвецов, не считая собаки"
+      "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
+      "campaign": "Трое мертвецов, не считая собаки",
+      "tags": []
     },
     {
       "id": "achievement-013",
@@ -144,8 +175,9 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 13,
       "sourceImage": "13.jpg",
-      "partyId": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
-      "campaign": "Трое мертвецов, не считая собаки"
+      "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
+      "campaign": "Трое мертвецов, не считая собаки",
+      "tags": []
     },
     {
       "id": "achievement-014",
@@ -155,8 +187,9 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 14,
       "sourceImage": "14.jpg",
-      "partyId": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
-      "campaign": "Трое мертвецов, не считая собаки"
+      "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
+      "campaign": "Трое мертвецов, не считая собаки",
+      "tags": []
     },
     {
       "id": "achievement-015",
@@ -166,8 +199,9 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 15,
       "sourceImage": "15.jpg",
-      "partyId": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
-      "campaign": "Трое мертвецов, не считая собаки"
+      "partyId": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
+      "campaign": "Трое мертвецов, не считая собаки",
+      "tags": []
     },
     {
       "id": "achievement-016",
@@ -1131,10 +1165,10 @@ window.ACHIEVEMENT_DATA = {
   "parties": [
     {
       "id": "party-001",
-      "title": ""
+      "title": "Класика"
     },
     {
-      "id": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
+      "id": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
       "title": "Трое мертвецов, не считая собаки"
     },
     {
