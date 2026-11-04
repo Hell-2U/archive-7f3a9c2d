@@ -1,9 +1,9 @@
 // Generated from achievements.json by npm run build.
 window.ACHIEVEMENT_DATA = {
   "version": 1,
-  "title": "Достижения группы",
-  "description": "Памятные моменты наших приключений.",
-  "source": "Коллекция группы",
+  "title": "Наши ачивки",
+  "description": "Приколбасные моменты с партий",
+  "source": "",
   "achievements": [
     {
       "id": "heroic-finale",
@@ -12,7 +12,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/1.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 1,
-      "sourceImage": "1.jpg"
+      "sourceImage": "1.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "curtain-call",
@@ -21,7 +23,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/2.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 2,
-      "sourceImage": "2.jpg"
+      "sourceImage": "2.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "almost-a-saint",
@@ -30,7 +34,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/3.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 3,
-      "sourceImage": "3.jpg"
+      "sourceImage": "3.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "unexpected-strike",
@@ -39,7 +45,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/4.png",
       "imageRendering": "pixelated",
       "sourceOrder": 4,
-      "sourceImage": "4.png"
+      "sourceImage": "4.png",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "the-bigger-they-are",
@@ -48,7 +56,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/5.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 5,
-      "sourceImage": "5.jpg"
+      "sourceImage": "5.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-006",
@@ -57,7 +67,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/6.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 6,
-      "sourceImage": "6.jpg"
+      "sourceImage": "6.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-007",
@@ -66,7 +78,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/7.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 7,
-      "sourceImage": "7.jpg"
+      "sourceImage": "7.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-008",
@@ -75,7 +89,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/8.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 8,
-      "sourceImage": "8.jpg"
+      "sourceImage": "8.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-009",
@@ -84,7 +100,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/9.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 9,
-      "sourceImage": "9.jpg"
+      "sourceImage": "9.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-010",
@@ -93,7 +111,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/10.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 10,
-      "sourceImage": "10.jpg"
+      "sourceImage": "10.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-011",
@@ -102,7 +122,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/11.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 11,
-      "sourceImage": "11.jpg"
+      "sourceImage": "11.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-012",
@@ -111,7 +133,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/12.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 12,
-      "sourceImage": "12.jpg"
+      "sourceImage": "12.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-013",
@@ -120,7 +144,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/13.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 13,
-      "sourceImage": "13.jpg"
+      "sourceImage": "13.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-014",
@@ -129,7 +155,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/14.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 14,
-      "sourceImage": "14.jpg"
+      "sourceImage": "14.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-015",
@@ -138,7 +166,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/15.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 15,
-      "sourceImage": "15.jpg"
+      "sourceImage": "15.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-016",
@@ -147,7 +177,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/16.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 16,
-      "sourceImage": "16.jpg"
+      "sourceImage": "16.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-017",
@@ -156,7 +188,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/17.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 17,
-      "sourceImage": "17.jpg"
+      "sourceImage": "17.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-018",
@@ -165,7 +199,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/18.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 18,
-      "sourceImage": "18.jpg"
+      "sourceImage": "18.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-019",
@@ -174,7 +210,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/19.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 19,
-      "sourceImage": "19.jpg"
+      "sourceImage": "19.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-020",
@@ -183,7 +221,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/20.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 20,
-      "sourceImage": "20.jpg"
+      "sourceImage": "20.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-021",
@@ -192,7 +232,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/21.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 21,
-      "sourceImage": "21.jpg"
+      "sourceImage": "21.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-022",
@@ -201,7 +243,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/22.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 22,
-      "sourceImage": "22.jpg"
+      "sourceImage": "22.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-023",
@@ -210,7 +254,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/23.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 23,
-      "sourceImage": "23.jpg"
+      "sourceImage": "23.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-024",
@@ -219,7 +265,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/24.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 24,
-      "sourceImage": "24.jpg"
+      "sourceImage": "24.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-025",
@@ -228,7 +276,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/25.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 25,
-      "sourceImage": "25.jpg"
+      "sourceImage": "25.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-026",
@@ -237,7 +287,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/26.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 26,
-      "sourceImage": "26.jpg"
+      "sourceImage": "26.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-027",
@@ -246,7 +298,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/27.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 27,
-      "sourceImage": "27.jpg"
+      "sourceImage": "27.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-028",
@@ -255,7 +309,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/28.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 28,
-      "sourceImage": "28.jpg"
+      "sourceImage": "28.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-029",
@@ -264,7 +320,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/29.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 29,
-      "sourceImage": "29.jpg"
+      "sourceImage": "29.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-030",
@@ -273,7 +331,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/30.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 30,
-      "sourceImage": "30.jpg"
+      "sourceImage": "30.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-031",
@@ -282,7 +342,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/31.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 31,
-      "sourceImage": "31.jpg"
+      "sourceImage": "31.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-032",
@@ -291,7 +353,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/32.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 32,
-      "sourceImage": "32.jpg"
+      "sourceImage": "32.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-033",
@@ -300,7 +364,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/33.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 33,
-      "sourceImage": "33.jpg"
+      "sourceImage": "33.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-034",
@@ -309,7 +375,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/34.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 34,
-      "sourceImage": "34.jpg"
+      "sourceImage": "34.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-035",
@@ -318,7 +386,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/35.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 35,
-      "sourceImage": "35.jpg"
+      "sourceImage": "35.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-036",
@@ -327,7 +397,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/36.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 36,
-      "sourceImage": "36.jpg"
+      "sourceImage": "36.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-037",
@@ -336,7 +408,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/37.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 37,
-      "sourceImage": "37.jpg"
+      "sourceImage": "37.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-038",
@@ -345,7 +419,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/38.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 38,
-      "sourceImage": "38.jpg"
+      "sourceImage": "38.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-039",
@@ -354,7 +430,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/39.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 39,
-      "sourceImage": "39.jpg"
+      "sourceImage": "39.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-040",
@@ -363,7 +441,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/40.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 40,
-      "sourceImage": "40.jpg"
+      "sourceImage": "40.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-041",
@@ -372,7 +452,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/41.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 41,
-      "sourceImage": "41.jpg"
+      "sourceImage": "41.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-042",
@@ -381,7 +463,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/42.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 42,
-      "sourceImage": "42.jpg"
+      "sourceImage": "42.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-043",
@@ -390,7 +474,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/43.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 43,
-      "sourceImage": "43.jpg"
+      "sourceImage": "43.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-044",
@@ -399,7 +485,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/44.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 44,
-      "sourceImage": "44.jpg"
+      "sourceImage": "44.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-045",
@@ -408,7 +496,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/45.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 45,
-      "sourceImage": "45.jpg"
+      "sourceImage": "45.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-046",
@@ -417,7 +507,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/46.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 46,
-      "sourceImage": "46.jpg"
+      "sourceImage": "46.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-047",
@@ -426,7 +518,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/47.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 47,
-      "sourceImage": "47.jpg"
+      "sourceImage": "47.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-048",
@@ -435,7 +529,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/48.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 48,
-      "sourceImage": "48.jpg"
+      "sourceImage": "48.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-049",
@@ -444,7 +540,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/49.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 49,
-      "sourceImage": "49.jpg"
+      "sourceImage": "49.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-050",
@@ -453,7 +551,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/50.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 50,
-      "sourceImage": "50.jpg"
+      "sourceImage": "50.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-051",
@@ -462,7 +562,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/51.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 51,
-      "sourceImage": "51.jpg"
+      "sourceImage": "51.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-052",
@@ -471,7 +573,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/52.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 52,
-      "sourceImage": "52.jpg"
+      "sourceImage": "52.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-053",
@@ -480,7 +584,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/53.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 53,
-      "sourceImage": "53.jpg"
+      "sourceImage": "53.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-054",
@@ -489,7 +595,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/54.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 54,
-      "sourceImage": "54.jpg"
+      "sourceImage": "54.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-055",
@@ -498,7 +606,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/55.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 55,
-      "sourceImage": "55.jpg"
+      "sourceImage": "55.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-056",
@@ -507,7 +617,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/56.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 56,
-      "sourceImage": "56.jpg"
+      "sourceImage": "56.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-057",
@@ -516,7 +628,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/57.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 57,
-      "sourceImage": "57.jpg"
+      "sourceImage": "57.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-058",
@@ -525,7 +639,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/58.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 58,
-      "sourceImage": "58.jpg"
+      "sourceImage": "58.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-059",
@@ -534,7 +650,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/59.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 59,
-      "sourceImage": "59.jpg"
+      "sourceImage": "59.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-060",
@@ -543,7 +661,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/60.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 60,
-      "sourceImage": "60.jpg"
+      "sourceImage": "60.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-061",
@@ -552,7 +672,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/61.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 61,
-      "sourceImage": "61.jpg"
+      "sourceImage": "61.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-062",
@@ -561,7 +683,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/62.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 62,
-      "sourceImage": "62.jpg"
+      "sourceImage": "62.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-063",
@@ -570,7 +694,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/63.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 63,
-      "sourceImage": "63.jpg"
+      "sourceImage": "63.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-064",
@@ -579,7 +705,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/64.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 64,
-      "sourceImage": "64.jpg"
+      "sourceImage": "64.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-065",
@@ -588,7 +716,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/65.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 65,
-      "sourceImage": "65.jpg"
+      "sourceImage": "65.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-066",
@@ -597,7 +727,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/66.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 66,
-      "sourceImage": "66.jpg"
+      "sourceImage": "66.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-067",
@@ -606,7 +738,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/67.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 67,
-      "sourceImage": "67.jpg"
+      "sourceImage": "67.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-068",
@@ -615,7 +749,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/68.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 68,
-      "sourceImage": "68.jpg"
+      "sourceImage": "68.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-069",
@@ -624,7 +760,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/69.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 69,
-      "sourceImage": "69.jpg"
+      "sourceImage": "69.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-070",
@@ -633,7 +771,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/70.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 70,
-      "sourceImage": "70.jpg"
+      "sourceImage": "70.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-071",
@@ -642,7 +782,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/71.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 71,
-      "sourceImage": "71.jpg"
+      "sourceImage": "71.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-072",
@@ -651,7 +793,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/72.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 72,
-      "sourceImage": "72.jpg"
+      "sourceImage": "72.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-073",
@@ -660,7 +804,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/73.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 73,
-      "sourceImage": "73.jpg"
+      "sourceImage": "73.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-074",
@@ -669,7 +815,9 @@ window.ACHIEVEMENT_DATA = {
       "image": "assets/achievements/74.jpg",
       "imageRendering": "pixelated",
       "sourceOrder": 74,
-      "sourceImage": "74.jpg"
+      "sourceImage": "74.jpg",
+      "partyId": "party-001",
+      "campaign": ""
     },
     {
       "id": "achievement-075",
@@ -682,7 +830,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "75.jpg"
+      "sourceImage": "75.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-076",
@@ -695,7 +844,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "76.jpg"
+      "sourceImage": "76.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-077",
@@ -708,7 +858,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "77.jpg"
+      "sourceImage": "77.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-078",
@@ -721,7 +872,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "78.jpg"
+      "sourceImage": "78.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-079",
@@ -734,7 +886,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "79.jpg"
+      "sourceImage": "79.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-080",
@@ -747,7 +900,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "80.jpg"
+      "sourceImage": "80.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-081",
@@ -760,7 +914,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "81.jpg"
+      "sourceImage": "81.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-082",
@@ -773,7 +928,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "82.jpg"
+      "sourceImage": "82.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-083",
@@ -786,7 +942,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "83.jpg"
+      "sourceImage": "83.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-084",
@@ -799,7 +956,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "84.jpg"
+      "sourceImage": "84.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-085",
@@ -812,7 +970,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "85.jpg"
+      "sourceImage": "85.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-086",
@@ -825,7 +984,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "86.jpg"
+      "sourceImage": "86.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-087",
@@ -838,7 +998,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "87.jpg"
+      "sourceImage": "87.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-088",
@@ -851,7 +1012,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "88.jpg"
+      "sourceImage": "88.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-089",
@@ -864,7 +1026,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "89.jpg"
+      "sourceImage": "89.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-090",
@@ -877,7 +1040,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "90.jpg"
+      "sourceImage": "90.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-091",
@@ -890,7 +1054,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Пески ужаса"
       ],
-      "sourceImage": "91.jpg"
+      "sourceImage": "91.jpg",
+      "partyId": "party-002"
     },
     {
       "id": "achievement-092",
@@ -903,7 +1068,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Фортунград"
       ],
-      "sourceImage": "92.jpg"
+      "sourceImage": "92.jpg",
+      "partyId": "party-003"
     },
     {
       "id": "achievement-093",
@@ -916,7 +1082,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Фортунград"
       ],
-      "sourceImage": "93.jpg"
+      "sourceImage": "93.jpg",
+      "partyId": "party-003"
     },
     {
       "id": "achievement-094",
@@ -930,7 +1097,8 @@ window.ACHIEVEMENT_DATA = {
         "Фортунград"
       ],
       "sourceImage": "93.jpg",
-      "sourceRevision": "previous-import"
+      "sourceRevision": "previous-import",
+      "partyId": "party-003"
     },
     {
       "id": "achievement-095",
@@ -943,7 +1111,8 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Фортунград"
       ],
-      "sourceImage": "94.jpg"
+      "sourceImage": "94.jpg",
+      "partyId": "party-003"
     },
     {
       "id": "achievement-096",
@@ -956,7 +1125,22 @@ window.ACHIEVEMENT_DATA = {
       "tags": [
         "Фортунград"
       ],
-      "sourceImage": "95.jpg"
+      "sourceImage": "95.jpg",
+      "partyId": "party-003"
+    }
+  ],
+  "parties": [
+    {
+      "id": "party-001",
+      "title": ""
+    },
+    {
+      "id": "party-002",
+      "title": "Пески ужаса"
+    },
+    {
+      "id": "party-003",
+      "title": "Фортунград"
     }
   ]
 };
