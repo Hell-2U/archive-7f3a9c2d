@@ -133,8 +133,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 12,
       "sourceImage": "12.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
+      "campaign": "Трое мертвецов, не считая собаки"
     },
     {
       "id": "achievement-013",
@@ -144,8 +144,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 13,
       "sourceImage": "13.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
+      "campaign": "Трое мертвецов, не считая собаки"
     },
     {
       "id": "achievement-014",
@@ -155,8 +155,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 14,
       "sourceImage": "14.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
+      "campaign": "Трое мертвецов, не считая собаки"
     },
     {
       "id": "achievement-015",
@@ -166,8 +166,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 15,
       "sourceImage": "15.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
+      "campaign": "Трое мертвецов, не считая собаки"
     },
     {
       "id": "achievement-016",
@@ -177,8 +177,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 16,
       "sourceImage": "16.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
+      "campaign": "(Почти) Сказочный финал"
     },
     {
       "id": "achievement-017",
@@ -188,8 +188,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 17,
       "sourceImage": "17.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
+      "campaign": "(Почти) Сказочный финал"
     },
     {
       "id": "achievement-018",
@@ -199,8 +199,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 18,
       "sourceImage": "18.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
+      "campaign": "(Почти) Сказочный финал"
     },
     {
       "id": "achievement-019",
@@ -210,8 +210,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 19,
       "sourceImage": "19.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
+      "campaign": "(Почти) Сказочный финал"
     },
     {
       "id": "achievement-020",
@@ -221,8 +221,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 20,
       "sourceImage": "20.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
+      "campaign": "(Почти) Сказочный финал"
     },
     {
       "id": "achievement-021",
@@ -232,8 +232,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 21,
       "sourceImage": "21.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
+      "campaign": "(Почти) Сказочный финал"
     },
     {
       "id": "achievement-022",
@@ -243,8 +243,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 22,
       "sourceImage": "22.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
+      "campaign": "(Почти) Сказочный финал"
     },
     {
       "id": "achievement-023",
@@ -254,8 +254,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 23,
       "sourceImage": "23.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-024",
@@ -265,8 +265,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 24,
       "sourceImage": "24.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-025",
@@ -276,8 +276,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 25,
       "sourceImage": "25.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-026",
@@ -287,8 +287,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 26,
       "sourceImage": "26.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-027",
@@ -298,8 +298,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 27,
       "sourceImage": "27.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-028",
@@ -309,8 +309,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 28,
       "sourceImage": "28.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-029",
@@ -320,8 +320,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 29,
       "sourceImage": "29.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-030",
@@ -331,8 +331,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 30,
       "sourceImage": "30.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-031",
@@ -342,8 +342,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 31,
       "sourceImage": "31.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-032",
@@ -353,8 +353,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 32,
       "sourceImage": "32.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-033",
@@ -364,8 +364,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 33,
       "sourceImage": "33.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-034",
@@ -375,8 +375,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 34,
       "sourceImage": "34.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-035",
@@ -386,8 +386,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 35,
       "sourceImage": "35.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-036",
@@ -397,8 +397,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 36,
       "sourceImage": "36.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-037",
@@ -408,8 +408,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 37,
       "sourceImage": "37.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-038",
@@ -419,8 +419,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 38,
       "sourceImage": "38.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-039",
@@ -430,8 +430,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 39,
       "sourceImage": "39.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-040",
@@ -441,8 +441,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 40,
       "sourceImage": "40.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-041",
@@ -452,8 +452,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 41,
       "sourceImage": "41.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-042",
@@ -463,8 +463,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 42,
       "sourceImage": "42.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-043",
@@ -474,8 +474,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 43,
       "sourceImage": "43.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-044",
@@ -485,8 +485,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 44,
       "sourceImage": "44.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-045",
@@ -496,8 +496,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 45,
       "sourceImage": "45.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-046",
@@ -507,8 +507,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 46,
       "sourceImage": "46.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-047",
@@ -518,8 +518,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 47,
       "sourceImage": "47.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "campaign": "Архемская рапсодия"
     },
     {
       "id": "achievement-048",
@@ -529,8 +529,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 48,
       "sourceImage": "48.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-049",
@@ -540,8 +540,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 49,
       "sourceImage": "49.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-050",
@@ -551,8 +551,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 50,
       "sourceImage": "50.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-051",
@@ -562,8 +562,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 51,
       "sourceImage": "51.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-052",
@@ -573,8 +573,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 52,
       "sourceImage": "52.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-053",
@@ -584,8 +584,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 53,
       "sourceImage": "53.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-054",
@@ -595,8 +595,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 54,
       "sourceImage": "54.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-055",
@@ -606,8 +606,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 55,
       "sourceImage": "55.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-056",
@@ -617,8 +617,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 56,
       "sourceImage": "56.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-057",
@@ -628,8 +628,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 57,
       "sourceImage": "57.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-058",
@@ -639,8 +639,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 58,
       "sourceImage": "58.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-059",
@@ -650,8 +650,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 59,
       "sourceImage": "59.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "campaign": "Класика"
     },
     {
       "id": "achievement-060",
@@ -661,8 +661,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 60,
       "sourceImage": "60.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-061",
@@ -672,8 +672,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 61,
       "sourceImage": "61.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-062",
@@ -683,8 +683,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 62,
       "sourceImage": "62.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-063",
@@ -694,8 +694,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 63,
       "sourceImage": "63.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-064",
@@ -705,8 +705,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 64,
       "sourceImage": "64.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-065",
@@ -716,8 +716,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 65,
       "sourceImage": "65.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-066",
@@ -727,8 +727,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 66,
       "sourceImage": "66.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-067",
@@ -738,8 +738,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 67,
       "sourceImage": "67.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-068",
@@ -749,8 +749,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 68,
       "sourceImage": "68.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-069",
@@ -760,8 +760,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 69,
       "sourceImage": "69.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-070",
@@ -771,8 +771,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 70,
       "sourceImage": "70.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-071",
@@ -782,8 +782,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 71,
       "sourceImage": "71.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-072",
@@ -793,8 +793,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 72,
       "sourceImage": "72.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-073",
@@ -804,8 +804,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 73,
       "sourceImage": "73.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-074",
@@ -815,8 +815,8 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "pixelated",
       "sourceOrder": 74,
       "sourceImage": "74.jpg",
-      "partyId": "party-001",
-      "campaign": ""
+      "partyId": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "campaign": "Страх и ненависть на арене"
     },
     {
       "id": "achievement-075",
@@ -1132,6 +1132,26 @@ window.ACHIEVEMENT_DATA = {
     {
       "id": "party-001",
       "title": ""
+    },
+    {
+      "id": "party-576488b2-9714-4d79-a55b-2460e54e73ff",
+      "title": "Трое мертвецов, не считая собаки"
+    },
+    {
+      "id": "party-ed65839f-bd14-45d5-8199-51a23bc52f7e",
+      "title": "(Почти) Сказочный финал"
+    },
+    {
+      "id": "party-1a140b4b-6c1e-4f43-9c86-f9a7bdb962db",
+      "title": "Архемская рапсодия"
+    },
+    {
+      "id": "party-cb43e923-a8b0-4c91-a10b-f644cc2d409b",
+      "title": "Класика"
+    },
+    {
+      "id": "party-b5cae190-4fde-4fba-9af5-5dc705ecd057",
+      "title": "Страх и ненависть на арене"
     },
     {
       "id": "party-002",
