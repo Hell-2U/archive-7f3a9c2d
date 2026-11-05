@@ -4,6 +4,8 @@
   if(!window.ACHIEVEMENT_EDITOR_MODE)return;
   const api=window.achievementArchive;
   const IMAGE_TYPES={'image/png':'png','image/jpeg':'jpg','image/webp':'webp','image/avif':'avif'};
+  const IMAGE_EXTENSIONS=/\.(png|jpe?g|webp|avif)$/i;
+  const imagePaths=collection=>new Set(collection.achievements.flatMap(a=>[a.image,a.detailImage]).filter(Boolean));
   const DB_NAME='party-achievements-editor-v1';
   const el=(tag,attrs={},text='')=>{const node=document.createElement(tag);for(const [key,value]of Object.entries(attrs))node.setAttribute(key,value);if(text)node.textContent=text;return node;};
   const uuid=()=>crypto.randomUUID();
@@ -23,13 +25,51 @@
   actions.append(backupButton,resetButton,publishButton);strip.append(info,actions);document.querySelector('main').prepend(strip);
   document.querySelector('#open-data').hidden=true;
   function setStatus(text,error=false){const label=document.querySelector('#editor-save-status');label.textContent=text;label.style.color=error?'#efb2aa':'';}
-  function updatePreview(){const used=new Set(state.collection.achievements.map(item=>item.image));for(const path of overrides.keys())if(!used.has(path))overrides.delete(path);state.images.forEach(image=>overrides.set(image.path,`data:${image.mime};base64,${image.base64}`));api.setCollection(state.collection);}
+  function updatePreview(){const used=imagePaths(state.collection);for(const path of overrides.keys())if(!used.has(path))overrides.delete(path);state.images.forEach(image=>overrides.set(image.path,`data:${image.mime};base64,${image.base64}`));api.setCollection(state.collection);}
   async function change(collection){state.collection=api.validate(collection);state.dirty=true;updatePreview();try{await saveDraft();setStatus('Черновик сохранён в этом браузере');}catch{setStatus('Не удалось сохранить черновик. Скачай копию перед закрытием страницы.',true);}}
   function dialog(title){const node=el('dialog',{class:'editor-dialog'}),heading=el('h2',{},title),form=el('form',{class:'editor-form'}),close=el('button',{class:'close-button',type:'button','aria-label':'Закрыть'},'×');close.addEventListener('click',()=>node.close());node.append(close,heading,form);document.body.append(node);node.addEventListener('close',()=>node.remove());return {node,form};}
   function field(form,labelText,node){const label=el('label',{},labelText);label.append(node);form.append(label);return node;}
   function formFooter(form,node){const buttons=el('div',{class:'editor-form-actions'}),cancel=el('button',{type:'button',class:'secondary-button'},'Отмена'),save=el('button',{type:'submit',class:'primary-button'},'Сохранить в черновик');cancel.onclick=()=>node.close();buttons.append(cancel,save);form.append(buttons);return save;}
   function status(form){const label=el('p',{class:'editor-status',role:'status','aria-live':'polite'});form.append(label);return label;}
   function error(label,err){label.classList.add('error');label.textContent=err.message||'Не удалось сохранить изменение.';}
+  function chooseImages(files) {
+    const images=files.filter(file=>IMAGE_EXTENSIONS.test(file.name));
+    if(!images.length)throw new Error('Выбери PNG, JPG, WebP или AVIF.');
+    if(images.length===1)return {icon:images[0]};
+    const stem=file=>file.name.replace(IMAGE_EXTENSIONS,'').toLowerCase();
+    const pairs=[];
+    for(const icon of images.filter(file=>stem(file).endsWith('-256'))){
+      for(const detail of images.filter(file=>stem(file)===stem(icon).slice(0,-4))){
+        pairs.push({icon,detail});
+      }
+    }
+    if(pairs.length===1)return pairs[0];
+    throw new Error(pairs.length
+      ? 'В папке несколько пар. Выбери два файла одной ачивки.'
+      : 'Не нашлась пара. У иконки должно быть то же имя, что у большой картинки, с добавлением «-256» перед расширением.');
+  }
+  async function filesFromEntry(entry) {
+    if(entry.isFile)return [await new Promise((resolve,reject)=>entry.file(resolve,reject))];
+    const reader=entry.createReader();
+    const files=[];
+    while(true){
+      const batch=await new Promise((resolve,reject)=>reader.readEntries(resolve,reject));
+      if(!batch.length)return files;
+      for(const child of batch)files.push(...await filesFromEntry(child));
+    }
+  }
+  async function storeImage(file) {
+    const extension=IMAGE_TYPES[file.type];
+    if(!extension)throw new Error('Выбери PNG, JPG, WebP или AVIF.');
+    if(file.size>10*1024*1024)throw new Error('Каждая картинка должна быть не больше 10 МБ.');
+    const encoded=await new Promise((resolve,reject)=>{
+      const reader=new FileReader();
+      reader.onload=()=>resolve(reader.result);
+      reader.onerror=()=>reject(new Error('Не удалось прочитать картинку.'));
+      reader.readAsDataURL(file);
+    });
+    return {path:`assets/achievements/user-${uuid()}.${extension}`,mime:file.type,base64:encoded.split(',')[1]};
+  }
   const selectedStyle=()=>document.querySelector('[data-style][aria-selected="true"]')?.dataset.style||'all';
   function partyForm({afterId=null,afterPartyId=null,renameId=null}={}){
     const {node,form}=dialog(renameId?'Название партии':'Новая партия');
@@ -51,25 +91,104 @@
     const newPartyTitle=field(form,'Название новой партии',el('input',{maxlength:'200',autocomplete:'off'}));
     function fillParties(){party.replaceChildren();for(const item of state.collection.parties.filter(p=>p.artStyle===artStyle.value))party.append(el('option',{value:item.id},item.title||'Партия без названия'));party.append(el('option',{value:'__new__'},'+ Новая партия'));const preferred=existing?.partyId||partyId||anchor?.partyId;if([...party.options].some(o=>o.value===preferred))party.value=preferred;newPartyTitle.parentElement.hidden=party.value!=='__new__';newPartyTitle.required=party.value==='__new__';}
     party.onchange=()=>{newPartyTitle.parentElement.hidden=party.value!=='__new__';newPartyTitle.required=party.value==='__new__';};artStyle.onchange=fillParties;fillParties();
-    const file=field(form,existing?'Заменить картинку':'Картинка',el('input',{type:'file',accept:'.png,.jpg,.jpeg,.webp,.avif'}));
-    const preview=el('img',{class:'editor-preview',alt:'Предпросмотр картинки',hidden:''});
-    const currentImage=existing?.image;if(currentImage){preview.src=overrides.get(currentImage)||currentImage;preview.hidden=false;}form.append(preview);
-    let previewUrl;file.onchange=()=>{if(previewUrl)URL.revokeObjectURL(previewUrl);if(file.files[0]){previewUrl=URL.createObjectURL(file.files[0]);preview.src=previewUrl;preview.hidden=false;}};
-    const pixel=field(form,'Показ изображения',el('select',{}));pixel.append(el('option',{value:'auto'},'Обычная иллюстрация'),el('option',{value:'pixelated'},'Пиксельный рисунок'));pixel.value=existing?.imageRendering||'auto';
-    form.append(el('p',{class:'editor-note'},'PNG, JPG, WebP или AVIF, до 10 МБ. Можно сохранить ачивку без картинки и добавить её позже.'));
-    const label=status(form),save=formFooter(form,node);
-    node.addEventListener('close',()=>{if(previewUrl)URL.revokeObjectURL(previewUrl);});
-    form.addEventListener('submit',async event=>{event.preventDefault();save.disabled=true;try{
-      let image=existing?.image||'',pending;
-      if(file.files[0]){const selected=file.files[0],extension=IMAGE_TYPES[selected.type];if(!extension)throw new Error('Выбери PNG, JPG, WebP или AVIF.');if(selected.size>10*1024*1024)throw new Error('Картинка должна быть не больше 10 МБ.');
-        const encoded=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('Не удалось прочитать картинку.'));reader.readAsDataURL(selected);});
-        image=`assets/achievements/user-${uuid()}.${extension}`;pending={path:image,mime:selected.type,base64:encoded.split(',')[1]};
+    const upload=el('div',{class:'editor-upload'});
+    upload.append(el('p',{},'Перетащи сюда папку или файлы'));
+    const file=field(upload,'Выбрать файлы',el('input',{type:'file',multiple:'',accept:'.png,.jpg,.jpeg,.webp,.avif'}));
+    const folder=field(upload,'Выбрать папку',el('input',{type:'file',webkitdirectory:''}));
+    const previews=el('div',{class:'editor-image-previews'}),uploadStatus=status(upload);
+    form.append(upload,previews);
+    let selectedImages=null,previewUrls=[],selectionVersion=0,readingFiles=false,selectionError=null;
+    function showPreviews(){
+      previewUrls.forEach(url=>URL.revokeObjectURL(url));
+      previewUrls=[];
+      previews.replaceChildren();
+      const display=(caption,file,path)=>{
+        if(!file&&!path)return;
+        let src=overrides.get(path)||path;
+        if(file){src=URL.createObjectURL(file);previewUrls.push(src);}
+        const item=el('div');
+        item.append(el('img',{class:'editor-preview',src,alt:caption}),el('span',{},caption));
+        if(file)item.append(el('small',{},file.name));
+        previews.append(item);
+      };
+      if(selectedImages){
+        display(selectedImages.detail?'Иконка':'Иконка и просмотр',selectedImages.icon);
+        display('При открытии',selectedImages.detail);
+      }else{
+        display(existing?.detailImage?'Иконка':'Иконка и просмотр',null,existing?.image);
+        display('При открытии',null,existing?.detailImage);
       }
+    }
+    async function selectImages(getFiles){
+      const version=++selectionVersion;
+      readingFiles=true;
+      selectionError=null;
+      uploadStatus.classList.remove('error');
+      uploadStatus.textContent='Читаем файлы…';
+      try{
+        const files=await getFiles();
+        if(version!==selectionVersion)return;
+        selectedImages=chooseImages(files);
+        uploadStatus.textContent=selectedImages.detail?'Пара изображений готова':'Изображение готово';
+        showPreviews();
+      }catch(err){
+        if(version!==selectionVersion)return;
+        selectionError=err;
+        error(uploadStatus,err);
+      }finally{if(version===selectionVersion)readingFiles=false;}
+    }
+    for(const input of [file,folder])input.onchange=()=>{
+      const files=Array.from(input.files);
+      if(files.length)selectImages(()=>files);
+      input.value='';
+    };
+    form.ondragover=event=>{
+      if(!event.dataTransfer.types.includes('Files'))return;
+      event.preventDefault();
+      event.dataTransfer.dropEffect='copy';
+      upload.classList.add('dragging');
+    };
+    form.ondragleave=event=>{if(!form.contains(event.relatedTarget))upload.classList.remove('dragging');};
+    form.ondrop=event=>{
+      if(!event.dataTransfer.types.includes('Files'))return;
+      event.preventDefault();
+      upload.classList.remove('dragging');
+      const transfer=event.dataTransfer;
+      const entries=Array.from(transfer.items).map(item=>item.webkitGetAsEntry?.()).filter(Boolean);
+      const files=Array.from(transfer.files);
+      selectImages(async()=>entries.length?(await Promise.all(entries.map(filesFromEntry))).flat():files);
+    };
+    showPreviews();
+    const pixel=field(form,'Показ изображения',el('select',{}));pixel.append(el('option',{value:'auto'},'Обычная иллюстрация'),el('option',{value:'pixelated'},'Пиксельный рисунок'));pixel.value=existing?.imageRendering||'auto';
+    form.append(el('p',{class:'editor-note'},'PNG, JPG, WebP или AVIF, до 10 МБ на файл. Файл с «-256» в конце имени станет иконкой. Большая версия с тем же именем откроется по нажатию.'));
+    const label=status(form),save=formFooter(form,node);
+    node.addEventListener('close',()=>{selectionVersion++;previewUrls.forEach(url=>URL.revokeObjectURL(url));});
+    form.addEventListener('submit',async event=>{event.preventDefault();save.disabled=true;try{
+      if(readingFiles)throw new Error('Дождись загрузки списка файлов.');
+      if(selectionError)throw selectionError;
+      let image=existing?.image||'',detailImage=existing?.detailImage||'';
+      const pending=[];
+      const images=selectedImages;
+      if(images){
+        const icon=await storeImage(images.icon);
+        pending.push(icon);
+        image=icon.path;
+        detailImage='';
+        if(images.detail){
+          const detail=await storeImage(images.detail);
+          pending.push(detail);
+          detailImage=detail.path;
+        }
+      }
+      if(!node.open)return;
       let collection=state.collection,chosenParty=party.value;
       if(chosenParty==='__new__'){chosenParty='party-'+uuid();collection=PartyCollection.insertParty(collection,{id:chosenParty,title:newPartyTitle.value.trim(),afterPartyId:collection.parties.at(-1)?.id,artStyle:artStyle.value});}
       const record={...(existing||{}),id:existing?.id||'achievement-'+uuid(),title:title.value.trim(),description:description.value.trim(),artStyle:artStyle.value,image,partyId:chosenParty,imageRendering:pixel.value};
+      if(detailImage)record.detailImage=detailImage;
+      else if(existing?.detailImage)record.detailImage='';
       const next=PartyCollection.saveAchievement(collection,record,existing||anchor?.partyId!==chosenParty?null:afterId);
-      if(pending)state.images.push(pending);
+      const used=imagePaths(next);
+      state.images=[...state.images,...pending].filter(item=>used.has(item.path));
       await change(next);node.close();
     }catch(err){error(label,err);}finally{save.disabled=false;}});
     node.showModal();title.focus();
@@ -129,7 +248,7 @@
     for(const text of ['Resource owner: Hell-2U.','Repository access: Only select repositories → archive-7f3a9c2d.','Repository permissions → Contents → Read and write.','Выбери срок действия, создай ключ и вставь его в поле выше.'])list.append(el('li',{},text));help.append(list);form.append(help);
     const label=status(form),buttons=el('div',{class:'editor-form-actions'}),cancel=el('button',{type:'button',class:'secondary-button'},'Отмена'),send=el('button',{type:'submit',class:'primary-button'},'Опубликовать');cancel.onclick=()=>node.close();buttons.append(cancel,send);form.append(buttons);
     form.addEventListener('submit',async event=>{event.preventDefault();if(busy)return;busy=true;send.disabled=true;cancel.disabled=true;label.classList.remove('error');try{
-      const collection=api.validate(state.collection),used=new Set(collection.achievements.map(a=>a.image));
+      const collection=api.validate(state.collection),used=imagePaths(collection);
       try{if(remember.checked)localStorage.setItem(tokenStore,token.value);else localStorage.removeItem(tokenStore);}catch{}
       {
         label.textContent='Проверяем исходную версию на GitHub…';

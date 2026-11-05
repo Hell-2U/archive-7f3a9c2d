@@ -24,6 +24,7 @@ function validateCollection(value) {
     if (ids.has(id)) throw new Error(`Повторяется идентификатор «${id}».`);
     ids.add(id);
     if (record.image && !safeImage(record.image)) throw new Error(`Проверь ссылку на картинку у записи № ${index + 1}. Нужна HTTPS-ссылка или путь внутри сайта.`);
+    if (record.detailImage && !safeImage(record.detailImage)) throw new Error(`Проверь ссылку на полноразмерную картинку у записи № ${index + 1}.`);
     return {...record, artStyle: record.artStyle === 'new' ? 'new' : 'old', id, title: record.title.trim(), description: record.description || '', image: record.image || '', imageRendering: record.imageRendering === 'pixelated' ? 'pixelated' : 'auto'};
   });
   return PartyCollection.normalize({...value, version: 1, title: typeof value.title === 'string' && value.title.trim() ? value.title : 'Наши ачивки', description: typeof value.description === 'string' ? value.description : 'Приколбасные моменты с партий', source: typeof value.source === 'string' ? value.source : '', achievements});
@@ -50,9 +51,10 @@ function svgIcon(name) {
 }
 function fallbackImage() { const el = document.createElement('span'); el.className = 'image-fallback'; el.title = 'Иллюстрация пока не добавлена'; el.setAttribute('role', 'img'); el.setAttribute('aria-label', 'Иллюстрация пока не добавлена'); el.append(svgIcon('image')); return el; }
 function imageFor(record, {large = false, eager = false} = {}) {
-  if (!record.image) return fallbackImage();
+  const path = large ? record.detailImage || record.image : record.image || record.detailImage;
+  if (!path) return fallbackImage();
   const img = document.createElement('img');
-  img.src = window.ACHIEVEMENT_IMAGE_OVERRIDES?.get(record.image) || record.image; img.alt = large ? record.title : '';
+  img.src = window.ACHIEVEMENT_IMAGE_OVERRIDES?.get(path) || path; img.alt = large ? record.title : '';
   img.loading = eager || large ? 'eager' : 'lazy'; img.decoding = 'async';
   img.referrerPolicy = 'no-referrer';
   if (record.imageRendering === 'pixelated') img.className = 'pixelated';
