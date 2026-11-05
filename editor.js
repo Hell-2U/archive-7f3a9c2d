@@ -75,7 +75,7 @@
     const {node,form}=dialog(renameId?'Название партии':'Новая партия');
     const title=field(form,'Название',el('input',{required:'',maxlength:'200',autocomplete:'off'}));
     if(renameId)title.value=state.collection.parties.find(p=>p.id===renameId)?.title||'';
-    if(afterId)form.append(el('p',{class:'editor-note'},'Новый раздел начнётся после выбранной ачивки. Остальные ачивки текущей партии после неё перейдут в этот раздел.'));
+    if(afterId)form.append(el('p',{class:'editor-note'},'Если после этой ачивки в партии есть другие записи, они перейдут в новый раздел. Пустая новая партия появится в конце общего списка.'));
     const label=status(form);formFooter(form,node);
     form.addEventListener('submit',async event=>{event.preventDefault();if(!title.value.trim())return;try{const data=renameId?PartyCollection.renameParty(state.collection,renameId,title.value.trim()):PartyCollection.insertParty(state.collection,{id:'party-'+uuid(),title:title.value.trim(),afterId,afterPartyId,artStyle:selectedStyle()==='all'?null:selectedStyle()});await change(data);node.close();}catch(err){error(label,err);}});
     node.showModal();title.focus();

@@ -35,6 +35,14 @@
       const party = data.parties.find(item=>item.id === record.partyId);
       record.campaign = party.title;
     }
+    if (data.partyOrderVersion !== 1) {
+      // Group older collections by style once. Subsequent manual moves stay saved.
+      data.parties = [
+        ...data.parties.filter(party => party.artStyle === 'old'),
+        ...data.parties.filter(party => party.artStyle === 'new'),
+      ];
+      data.partyOrderVersion = 1;
+    }
     return data;
   }
   function groups(data, reverse=false) {
@@ -46,13 +54,13 @@
     const oldId = anchor?.partyId || afterPartyId;
     const oldIndex = next.parties.findIndex(item=>item.id === oldId);
     const style=artStyle||anchor?.artStyle||next.parties[oldIndex]?.artStyle||'old';
-    next.parties.splice(oldIndex + 1,0,{id,title,artStyle:style});
-    if (anchor) {
-      const index = next.achievements.indexOf(anchor);
-      for (const record of next.achievements.slice(index + 1)) {
-        if (record.partyId !== oldId || (record.artStyle==='new'?'new':'old')!==style) continue;
-        record.partyId = id; record.campaign = title;
-      }
+    const tail = anchor ? next.achievements.slice(next.achievements.indexOf(anchor) + 1)
+      .filter(record => record.partyId === oldId && (record.artStyle === 'new' ? 'new' : 'old') === style) : [];
+    const position = tail.length ? oldIndex + 1 : next.parties.length;
+    next.parties.splice(position, 0, {id,title,artStyle:style});
+    for (const record of tail) {
+      record.partyId = id;
+      record.campaign = title;
     }
     return normalize(next);
   }
