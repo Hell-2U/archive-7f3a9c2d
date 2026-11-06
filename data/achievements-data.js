@@ -1425,30 +1425,44 @@ window.ACHIEVEMENT_DATA = {
       "title": "“Я знаю эту dh’oine!”",
       "description": "Встретить вашего злейшего противника, воскресшего и сохранившего лютую ненависть к вам.",
       "artStyle": "new",
-      "image": "assets/achievements/user-e5efaeee-97d3-47a7-883d-14ef5b5405da.webp",
+      "image": "assets/achievements/user-3a27a980-f90b-44b6-ae92-a01786df591b.webp",
       "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
       "imageRendering": "auto",
-      "campaign": "“Конвергенция пяти источников магии”"
+      "campaign": "“Конвергенция пяти источников магии”",
+      "detailImage": "assets/achievements/user-bebd7747-53cf-4304-9c01-d32847cff5be.png"
     },
     {
       "id": "achievement-b646d571-389b-428c-8bb4-5c5f1ade163d",
       "title": "“Мы выиграли, а по итогу проиграли?”",
       "description": "Осознайте что после победы над врагами, они всё равно забрали то что хотели и ушли не получив даже синяка.",
       "artStyle": "new",
-      "image": "assets/achievements/user-16ab2d00-8540-43da-9082-6791504572dd.webp",
+      "image": "assets/achievements/user-e6808554-f4ad-458b-8b52-3932d83acfeb.webp",
       "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
       "imageRendering": "auto",
-      "campaign": "“Конвергенция пяти источников магии”"
+      "campaign": "“Конвергенция пяти источников магии”",
+      "detailImage": "assets/achievements/user-e27b8162-df76-4d67-b3fd-c7f425cf28a7.png"
     },
     {
       "id": "achievement-d5758910-9d2f-4d8f-9f96-a9066ef3d82d",
       "title": "Это не лопата и не кирка",
       "description": "Уничтожьте семейную реликвию используя её не по назначению.",
       "artStyle": "new",
-      "image": "assets/achievements/user-80e6d24a-6d97-418c-af3f-638957a9775e.webp",
+      "image": "assets/achievements/user-77222184-6ef5-4775-93a1-be5dff0fa773.webp",
       "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
       "imageRendering": "auto",
-      "campaign": "“Конвергенция пяти источников магии”"
+      "campaign": "“Конвергенция пяти источников магии”",
+      "detailImage": "assets/achievements/user-15c1da79-1609-4bbf-9de5-e9aae4e90312.png"
+    },
+    {
+      "id": "achievement-aff64aed-1c2a-4e39-b678-4541656ce13f",
+      "title": "Знакомьтесь, оруженосец Бигсби.",
+      "description": "Получите союзника-Npc за предысторию.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-4d7bf615-326a-4f1c-9a14-dc83079ec739.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "campaign": "“Конвергенция пяти источников магии”",
+      "detailImage": "assets/achievements/user-c6c82177-7ab4-41ae-b961-4c48643ee010.png"
     }
   ],
   "parties": [
