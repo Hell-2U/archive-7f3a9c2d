@@ -1463,6 +1463,29 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "auto",
       "campaign": "“Конвергенция пяти источников магии”",
       "detailImage": "assets/achievements/user-c6c82177-7ab4-41ae-b961-4c48643ee010.png"
+    },
+    {
+      "id": "achievement-69817040-95fe-46bb-b055-6144c64e1bef",
+      "title": "Фейерверк из дракона",
+      "description": "Убейте дракона в воздухе ударом в спину.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-c37a4d4c-1bf8-4eb3-9e7c-27c54fc50b3a.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "detailImage": "assets/achievements/user-9065058d-e081-49e5-96f7-901951cea4b1.gif",
+      "detailKind": "gif",
+      "campaign": "“Конвергенция пяти источников магии”"
+    },
+    {
+      "id": "achievement-efd5bfb8-ac0a-43f0-9b06-850bf13b96a9",
+      "title": "Экспозиционная подмога",
+      "description": "Познакомтесь с другом вашего отца.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-387c0064-2af6-4f93-a188-1c4e572fdafd.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "detailImage": "assets/achievements/user-435cd34e-5f68-48a9-8d34-4030c8433352.png",
+      "campaign": "“Конвергенция пяти источников магии”"
     }
   ],
   "parties": [
@@ -1470,16 +1493,6 @@ window.ACHIEVEMENT_DATA = {
       "id": "party-001",
       "title": "Класика",
       "artStyle": "old"
-    },
-    {
-      "id": "party-001--new-style",
-      "title": "“Земли террора”",
-      "artStyle": "new"
-    },
-    {
-      "id": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
-      "title": "“Конвергенция пяти источников магии”",
-      "artStyle": "new"
     },
     {
       "id": "party-d2d577c6-d56d-4a9e-981f-b1f9da86bf7a",
@@ -1515,6 +1528,17 @@ window.ACHIEVEMENT_DATA = {
       "id": "party-003",
       "title": "Фортунград",
       "artStyle": "old"
+    },
+    {
+      "id": "party-001--new-style",
+      "title": "“Земли террора”",
+      "artStyle": "new"
+    },
+    {
+      "id": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "title": "“Конвергенция пяти источников магии”",
+      "artStyle": "new"
     }
-  ]
+  ],
+  "partyOrderVersion": 1
 };
