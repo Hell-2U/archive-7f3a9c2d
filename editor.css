@@ -7,3 +7,5 @@
 .editor-image-previews{display:flex;flex-wrap:wrap;gap:16px}
 .editor-image-previews>div{display:grid;gap:4px;flex:1;min-width:120px;color:#c0d2e4;font-size:12px}
 .editor-image-previews small{color:#9bb2c7;overflow-wrap:anywhere}
+
+.editor-media-modes{display:flex;gap:8px}.editor-media-modes [aria-pressed="true"]{background:#397898;border-color:#8bcde988;color:#f1f9ff}

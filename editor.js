@@ -3,7 +3,7 @@
   'use strict';
   if(!window.ACHIEVEMENT_EDITOR_MODE)return;
   const api=window.achievementArchive;
-  const IMAGE_TYPES={'image/png':'png','image/jpeg':'jpg','image/webp':'webp','image/avif':'avif'};
+  const IMAGE_TYPES={'image/png':'png','image/jpeg':'jpg','image/webp':'webp','image/avif':'avif','image/gif':'gif'};
   const IMAGE_EXTENSIONS=/\.(png|jpe?g|webp|avif)$/i;
   const imagePaths=collection=>new Set(collection.achievements.flatMap(a=>[a.image,a.detailImage]).filter(Boolean));
   const DB_NAME='party-achievements-editor-v1';
@@ -48,6 +48,16 @@
       ? 'В папке несколько пар. Выбери два файла одной ачивки.'
       : 'Не нашлась пара. У иконки должно быть то же имя, что у большой картинки, с добавлением «-256» перед расширением.');
   }
+  function chooseGifImages(files) {
+    const animations=files.filter(file=>/\.gif$/i.test(file.name));
+    const stills=files.filter(file=>IMAGE_EXTENSIONS.test(file.name));
+    const thumbnails=stills.filter(file=>/-256\.[^.]+$/i.test(file.name));
+    const icon=stills.length===1?stills[0]:thumbnails.length===1?thumbnails[0]:null;
+    if(animations.length>1 || (stills.length && !icon) || (!animations.length && !icon)){
+      throw new Error('Выбери одну GIF-анимацию и одну статичную иконку. В папке с несколькими картинками иконка должна иметь суффикс «-256».');
+    }
+    return {...(icon?{icon}:{}),...(animations.length?{detail:animations[0]}:{})};
+  }
   async function filesFromEntry(entry) {
     if(entry.isFile)return [await new Promise((resolve,reject)=>entry.file(resolve,reject))];
     const reader=entry.createReader();
@@ -60,7 +70,7 @@
   }
   async function storeImage(file) {
     const extension=IMAGE_TYPES[file.type];
-    if(!extension)throw new Error('Выбери PNG, JPG, WebP или AVIF.');
+    if(!extension)throw new Error('Выбери PNG, JPG, WebP, AVIF или GIF.');
     if(file.size>10*1024*1024)throw new Error('Каждая картинка должна быть не больше 10 МБ.');
     const encoded=await new Promise((resolve,reject)=>{
       const reader=new FileReader();
@@ -93,11 +103,26 @@
     party.onchange=()=>{newPartyTitle.parentElement.hidden=party.value!=='__new__';newPartyTitle.required=party.value==='__new__';};artStyle.onchange=fillParties;fillParties();
     const upload=el('div',{class:'editor-upload'});
     upload.append(el('p',{},'Перетащи сюда папку или файлы'));
-    const file=field(upload,'Выбрать файлы',el('input',{type:'file',multiple:'',accept:'.png,.jpg,.jpeg,.webp,.avif'}));
+    const staticFormats='.png,.jpg,.jpeg,.webp,.avif';
+    const file=field(upload,'Выбрать файлы',el('input',{type:'file',multiple:'',accept:staticFormats}));
+    const iconFile=field(upload,'Статичная иконка',el('input',{type:'file',accept:staticFormats}));
+    const gifFile=field(upload,'GIF-анимация',el('input',{type:'file',accept:'.gif,image/gif'}));
     const folder=field(upload,'Выбрать папку',el('input',{type:'file',webkitdirectory:''}));
     const previews=el('div',{class:'editor-image-previews'}),uploadStatus=status(upload);
-    form.append(upload,previews);
+    const mediaModes=el('div',{class:'editor-media-modes',role:'group','aria-label':'Тип изображения'});
+    const stillMode=el('button',{type:'button',class:'secondary-button'},'Изображение');
+    const gifMode=el('button',{type:'button',class:'secondary-button'},'GIF');
+    mediaModes.append(stillMode,gifMode);
+    form.append(mediaModes,upload,previews);
+    const originalMode=existing?.detailKind==='gif'?'gif':'still';
+    let mediaMode=originalMode;
     let selectedImages=null,previewUrls=[],selectionVersion=0,readingFiles=false,selectionError=null;
+    function currentImage(role){
+      if(selectedImages?.[role])return selectedImages[role];
+      if(role==='icon')return existing?.image||'';
+      if(mediaMode!==originalMode || (mediaMode==='still' && selectedImages))return '';
+      return existing?.detailImage||'';
+    }
     function showPreviews(){
       previewUrls.forEach(url=>URL.revokeObjectURL(url));
       previewUrls=[];
@@ -111,15 +136,12 @@
         if(file)item.append(el('small',{},file.name));
         previews.append(item);
       };
-      if(selectedImages){
-        display(selectedImages.detail?'Иконка':'Иконка и просмотр',selectedImages.icon);
-        display('При открытии',selectedImages.detail);
-      }else{
-        display(existing?.detailImage?'Иконка':'Иконка и просмотр',null,existing?.image);
-        display('При открытии',null,existing?.detailImage);
-      }
+      const icon=currentImage('icon'),detail=currentImage('detail');
+      const show=(caption,value)=>display(caption,typeof value==='string'?null:value,typeof value==='string'?value:'');
+      show(detail||mediaMode==='gif'?'Иконка':'Иконка и просмотр',icon);
+      show(mediaMode==='gif'?'GIF при открытии':'При открытии',detail);
     }
-    async function selectImages(getFiles){
+    async function selectImages(getFiles,role=null){
       const version=++selectionVersion;
       readingFiles=true;
       selectionError=null;
@@ -128,8 +150,12 @@
       try{
         const files=await getFiles();
         if(version!==selectionVersion)return;
-        selectedImages=chooseImages(files);
-        uploadStatus.textContent=selectedImages.detail?'Пара изображений готова':'Изображение готово';
+        if(mediaMode==='gif'){
+          const chosen=chooseGifImages(files);
+          if(role&&!chosen[role])throw new Error(role==='icon'?'Выбери статичную картинку для иконки.':'Выбери файл GIF.');
+          selectedImages={...selectedImages,...(role?{[role]:chosen[role]}:chosen)};
+        }else selectedImages=chooseImages(files);
+        uploadStatus.textContent=currentImage('icon')&&currentImage('detail')?'Пара изображений готова':'Изображение готово';
         showPreviews();
       }catch(err){
         if(version!==selectionVersion)return;
@@ -137,9 +163,9 @@
         error(uploadStatus,err);
       }finally{if(version===selectionVersion)readingFiles=false;}
     }
-    for(const input of [file,folder])input.onchange=()=>{
+    for(const [input,role] of [[file,null],[folder,null],[iconFile,'icon'],[gifFile,'detail']])input.onchange=()=>{
       const files=Array.from(input.files);
-      if(files.length)selectImages(()=>files);
+      if(files.length)selectImages(()=>files,role);
       input.value='';
     };
     form.ondragover=event=>{
@@ -158,34 +184,60 @@
       const files=Array.from(transfer.files);
       selectImages(async()=>entries.length?(await Promise.all(entries.map(filesFromEntry))).flat():files);
     };
-    showPreviews();
     const pixel=field(form,'Показ изображения',el('select',{}));pixel.append(el('option',{value:'auto'},'Обычная иллюстрация'),el('option',{value:'pixelated'},'Пиксельный рисунок'));pixel.value=existing?.imageRendering||'auto';
-    form.append(el('p',{class:'editor-note'},'PNG, JPG, WebP или AVIF, до 10 МБ на файл. Файл с «-256» в конце имени станет иконкой. Большая версия с тем же именем откроется по нажатию.'));
+    const mediaNote=el('p',{class:'editor-note'});
+    form.append(mediaNote);
+    function updateMediaMode(){
+      const animated=mediaMode==='gif';
+      stillMode.setAttribute('aria-pressed',String(!animated));
+      gifMode.setAttribute('aria-pressed',String(animated));
+      file.parentElement.hidden=animated;
+      iconFile.parentElement.hidden=!animated;
+      gifFile.parentElement.hidden=!animated;
+      mediaNote.textContent=animated
+        ? 'Статичная иконка отображается в списке, а GIF открывается по нажатию. Можно перетащить оба файла или папку. До 10 МБ на файл.'
+        : 'PNG, JPG, WebP или AVIF, до 10 МБ на файл. Файл с «-256» в конце имени станет иконкой. Большая версия с тем же именем откроется по нажатию.';
+      showPreviews();
+    }
+    function setMediaMode(mode){
+      if(mediaMode===mode)return;
+      mediaMode=mode;
+      selectionVersion++;
+      selectedImages=null;
+      selectionError=null;
+      readingFiles=false;
+      uploadStatus.textContent='';
+      uploadStatus.classList.remove('error');
+      updateMediaMode();
+    }
+    stillMode.onclick=()=>setMediaMode('still');
+    gifMode.onclick=()=>setMediaMode('gif');
+    updateMediaMode();
     const label=status(form),save=formFooter(form,node);
     node.addEventListener('close',()=>{selectionVersion++;previewUrls.forEach(url=>URL.revokeObjectURL(url));});
     form.addEventListener('submit',async event=>{event.preventDefault();save.disabled=true;try{
       if(readingFiles)throw new Error('Дождись загрузки списка файлов.');
       if(selectionError)throw selectionError;
-      let image=existing?.image||'',detailImage=existing?.detailImage||'';
+      const animated=mediaMode==='gif',icon=currentImage('icon'),detail=currentImage('detail');
+      if(animated&&(!icon||!detail))throw new Error('Для GIF-ачивки добавь статичную иконку и GIF-анимацию.');
       const pending=[];
-      const images=selectedImages;
-      if(images){
-        const icon=await storeImage(images.icon);
-        pending.push(icon);
-        image=icon.path;
-        detailImage='';
-        if(images.detail){
-          const detail=await storeImage(images.detail);
-          pending.push(detail);
-          detailImage=detail.path;
-        }
+      async function imagePath(value,allowGif){
+        if(typeof value==='string')return value;
+        if((value.type==='image/gif')!==allowGif)throw new Error(allowGif?'Выбери файл GIF.':'Иконка и обычное изображение должны быть статичными.');
+        const stored=await storeImage(value);
+        pending.push(stored);
+        return stored.path;
       }
+      const image=await imagePath(icon,false);
+      const detailImage=await imagePath(detail,animated);
       if(!node.open)return;
       let collection=state.collection,chosenParty=party.value;
       if(chosenParty==='__new__'){chosenParty='party-'+uuid();collection=PartyCollection.insertParty(collection,{id:chosenParty,title:newPartyTitle.value.trim(),afterPartyId:collection.parties.at(-1)?.id,artStyle:artStyle.value});}
       const record={...(existing||{}),id:existing?.id||'achievement-'+uuid(),title:title.value.trim(),description:description.value.trim(),artStyle:artStyle.value,image,partyId:chosenParty,imageRendering:pixel.value};
       if(detailImage)record.detailImage=detailImage;
       else if(existing?.detailImage)record.detailImage='';
+      if(animated)record.detailKind='gif';
+      else if(existing?.detailKind)record.detailKind='image';
       const next=PartyCollection.saveAchievement(collection,record,existing||anchor?.partyId!==chosenParty?null:afterId);
       const used=imagePaths(next);
       state.images=[...state.images,...pending].filter(item=>used.has(item.path));

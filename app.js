@@ -25,6 +25,9 @@ function validateCollection(value) {
     ids.add(id);
     if (record.image && !safeImage(record.image)) throw new Error(`Проверь ссылку на картинку у записи № ${index + 1}. Нужна HTTPS-ссылка или путь внутри сайта.`);
     if (record.detailImage && !safeImage(record.detailImage)) throw new Error(`Проверь ссылку на полноразмерную картинку у записи № ${index + 1}.`);
+    if (record.detailKind === 'gif' && (!record.image || !record.detailImage || /\.gif(?:[?#]|$)/i.test(record.image))) {
+      throw new Error(`Для GIF-ачивки № ${index + 1} нужны статичная иконка и GIF-анимация.`);
+    }
     return {...record, artStyle: record.artStyle === 'new' ? 'new' : 'old', id, title: record.title.trim(), description: record.description || '', image: record.image || '', imageRendering: record.imageRendering === 'pixelated' ? 'pixelated' : 'auto'};
   });
   return PartyCollection.normalize({...value, version: 1, title: typeof value.title === 'string' && value.title.trim() ? value.title : 'Наши ачивки', description: typeof value.description === 'string' ? value.description : 'Приколбасные моменты с партий', source: typeof value.source === 'string' ? value.source : '', achievements});
@@ -112,6 +115,15 @@ function render() {
     button.setAttribute('aria-haspopup', 'dialog');
     button.dataset.achievementId = record.id;
     const thumb = document.createElement('span'); thumb.className = 'achievement-thumb'; thumb.append(imageFor(record, {eager: index < 7}));
+    if (record.detailKind === 'gif') {
+      const badge = document.createElement('span');
+      badge.className = 'achievement-gif-badge';
+      badge.setAttribute('role', 'img');
+      badge.setAttribute('aria-label', 'При открытии проигрывается GIF');
+      badge.title = 'При открытии проигрывается GIF';
+      badge.append(svgIcon('bolt'));
+      thumb.append(badge);
+    }
     const content = document.createElement('span'); content.className = 'achievement-content';
     const title = document.createElement('span'); title.className = 'achievement-title'; title.setAttribute('role', 'heading'); title.setAttribute('aria-level', '2'); title.textContent = record.title;
     const description = document.createElement('span'); description.className = 'achievement-description'; description.textContent = record.description;

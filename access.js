@@ -21,14 +21,14 @@
   }
   function boot() {
     if (!bootPromise) {
-      bootPromise = loadScript('collection.js?v=party-order-2')
+      bootPromise = loadScript('collection.js?v=gif-achievements-1')
         .then(() => loadScript('data/achievements-data.js?v='+Date.now()))
-        .then(() => loadScript('app.js?v=party-order-2'))
+        .then(() => loadScript('app.js?v=gif-achievements-1'))
         .then(async()=>{
           if(!window.ACHIEVEMENT_EDITOR_MODE)return;
-          await new Promise((resolve,reject)=>{const style=document.createElement('link');style.rel='stylesheet';style.href='editor.css?v=party-order-2';style.onload=resolve;style.onerror=reject;document.head.append(style);});
-          await loadScript('publish.js?v=party-order-2');
-          await loadScript('editor.js?v=party-order-2');
+          await new Promise((resolve,reject)=>{const style=document.createElement('link');style.rel='stylesheet';style.href='editor.css?v=gif-achievements-1';style.onload=resolve;style.onerror=reject;document.head.append(style);});
+          await loadScript('publish.js?v=gif-achievements-1');
+          await loadScript('editor.js?v=gif-achievements-1');
         });
       bootPromise.catch(() => { bootPromise = null; });
     }

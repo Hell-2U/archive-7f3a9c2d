@@ -29,7 +29,7 @@
     const commit=await request('/git/commits/'+ref.object.sha,options);
     const tree=[];
     for(const [index,image] of images.entries()) {
-      if(!/^assets\/achievements\/user-[a-z\d-]+\.(png|jpg|webp|avif)$/.test(image.path))throw new Error('Некорректный путь изображения.');
+      if(!/^assets\/achievements\/user-[a-z\d-]+\.(png|jpg|webp|avif|gif)$/.test(image.path))throw new Error('Некорректный путь изображения.');
       onProgress(`Загружаем изображения: ${index+1} из ${images.length}`);
       const blob=await request('/git/blobs',{...options,method:'POST',body:{content:image.base64,encoding:'base64'}});
       tree.push({path:image.path,mode:'100644',type:'blob',sha:blob.sha});
