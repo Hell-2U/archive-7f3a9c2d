@@ -22,7 +22,8 @@
   const strip=el('div',{class:'editor-strip'}),info=el('div');info.append(el('strong',{},'Редактор'),el('p',{id:'editor-save-status'},'Загружаем последнюю публикацию…'));
   const actions=el('div',{class:'editor-strip-actions'}),publishButton=el('button',{type:'button',class:'primary-button'},'Опубликовать'),backupButton=el('button',{type:'button',class:'secondary-button'},'Скачать черновик');
   const resetButton=el('button',{type:'button',class:'secondary-button'},'Отменить черновик');
-  actions.append(backupButton,resetButton,publishButton);strip.append(info,actions);document.querySelector('main').prepend(strip);
+  const textsButton=el('button',{type:'button',class:'secondary-button'},'Тексты сайта');
+  actions.append(textsButton,backupButton,resetButton,publishButton);strip.append(info,actions);document.querySelector('main').prepend(strip);
   document.querySelector('#open-data').hidden=true;
   function setStatus(text,error=false){const label=document.querySelector('#editor-save-status');label.textContent=text;label.style.color=error?'#efb2aa':'';}
   function updatePreview(){const used=imagePaths(state.collection);for(const path of overrides.keys())if(!used.has(path))overrides.delete(path);state.images.forEach(image=>overrides.set(image.path,`data:${image.mime};base64,${image.base64}`));api.setCollection(state.collection);}
@@ -32,6 +33,45 @@
   function formFooter(form,node){const buttons=el('div',{class:'editor-form-actions'}),cancel=el('button',{type:'button',class:'secondary-button'},'Отмена'),save=el('button',{type:'submit',class:'primary-button'},'Сохранить в черновик');cancel.onclick=()=>node.close();buttons.append(cancel,save);form.append(buttons);return save;}
   function status(form){const label=el('p',{class:'editor-status',role:'status','aria-live':'polite'});form.append(label);return label;}
   function error(label,err){label.classList.add('error');label.textContent=err.message||'Не удалось сохранить изменение.';}
+  function siteTextsForm() {
+    const {node,form}=dialog('Тексты сайта');
+    node.classList.add('site-texts-dialog');
+    form.append(el('p',{class:'editor-note'},'Измени нужные подписи и сохрани черновик. Поля с пометкой «можно убрать» можно оставить пустыми. Затем нажми «Опубликовать», чтобы обновить сайт для друзей.'));
+    const current=api.getTexts();
+    const inputs=new Map();
+    let sectionName,section;
+    for(const item of api.textFields){
+      if(item.section!==sectionName){
+        sectionName=item.section;
+        section=el('details',{class:'site-text-section'});
+        if(!inputs.size)section.open=true;
+        section.append(el('summary',{},sectionName));
+        form.append(section);
+      }
+      const input=el(item.multiline?'textarea':'input',{maxlength:'5000',...(item.multiline?{rows:'3'}:{type:'text'})});
+      input.value=current[item.key];
+      if(!item.optional)input.required=true;
+      field(section,item.label+(item.optional?' — можно убрать':''),input);
+      inputs.set(item.key,input);
+    }
+    const defaults=el('button',{type:'button',class:'secondary-button'},'Заполнить исходными текстами');
+    defaults.onclick=()=>{for(const item of api.textFields)inputs.get(item.key).value=item.value;};
+    form.append(defaults);
+    const label=status(form);
+    const save=formFooter(form,node);
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();
+      save.disabled=true;
+      try{
+        const siteText=Object.fromEntries(Array.from(inputs,([key,input])=>[key,input.value]));
+        await change({...state.collection,siteText});
+        node.close();
+      }catch(err){error(label,err);}
+      finally{save.disabled=false;}
+    });
+    node.showModal();
+  }
+  textsButton.onclick=siteTextsForm;
   function chooseImages(files) {
     const images=files.filter(file=>IMAGE_EXTENSIONS.test(file.name));
     if(!images.length)throw new Error('Выбери PNG, JPG, WebP или AVIF.');
@@ -251,7 +291,7 @@
     const save=formFooter(form,node);save.textContent='Удалить из черновика';
     form.onsubmit=async event=>{event.preventDefault();const next=structuredClone(state.collection);
       if(kind==='achievement')next.achievements=next.achievements.filter(a=>a.id!==id);
-      else{const index=next.parties.findIndex(p=>p.id===id),previous=next.parties.slice(0,index).findLast(p=>p.artStyle===next.parties[index].artStyle);if(!previous){await change(PartyCollection.renameParty(next,id,''));node.close();return;}
+      else{const index=next.parties.findIndex(p=>p.id===id),previous=next.parties.slice(0,index).findLast(p=>p.artStyle===next.parties[index].artStyle && (p.hidden===true)===(next.parties[index].hidden===true));if(!previous){await change(PartyCollection.renameParty(next,id,''));node.close();return;}
         const old=next.parties[index];next.achievements.filter(a=>a.partyId===id).forEach(a=>{a.partyId=previous.id;a.tags=(a.tags||[]).filter(t=>t!==old.title);});next.parties.splice(index,1);}
       await change(next);node.close();};node.showModal();
   }
@@ -261,6 +301,16 @@
     for(const section of document.querySelectorAll('.party-section')){
       const partyId=section.dataset.partyId;
       const tools=el('div',{class:'editor-party-tools'}),rename=el('button',{type:'button'},'Изменить название партии');rename.onclick=()=>partyForm({renameId:partyId});tools.append(rename);const remove=el('button',{type:'button'},'Удалить разделитель');remove.onclick=()=>removeDraft('party',partyId);tools.append(remove);
+      const party=state.collection.parties.find(item=>item.id===partyId);
+      const hidden=party.hidden===true;
+      const visibility=el('button',{type:'button','aria-label':(hidden?'Показать партию ':'Скрыть партию ')+(party.title||'без названия')},hidden?'Показать':'Скрыть');
+      visibility.onclick=async()=>{
+        const next=structuredClone(state.collection);
+        next.parties.find(item=>item.id===partyId).hidden=!hidden;
+        await change(next);
+      };
+      tools.append(visibility);
+      if(hidden)tools.append(el('span',{class:'party-hidden-label'},'Скрыта для друзей'));
       const reversed=document.querySelector('#sort').value==='reverse';
       const ordered=PartyCollection.groups(state.collection,reversed),position=ordered.findIndex(p=>p.id===partyId);
       for(const [text,step,disabled]of [['↑ Выше',-1,position===0],['↓ Ниже',1,position===ordered.length-1]]){

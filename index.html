@@ -7,8 +7,8 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Достижения и памятные моменты нашей группы в D&D.">
   <title>ошибка: 0012</title>
-  <link rel="stylesheet" href="styles.css?v=gif-achievements-1">
-  <script src="access.js?v=gif-achievements-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=party-visibility-texts-1">
+  <script src="access.js?v=party-visibility-texts-1" defer></script>
 </head>
 <body class="access-locked">
   <svg class="symbol-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -46,9 +46,9 @@
     </section>
     <div class="section-nav">
       <div class="style-tabs" role="tablist" aria-label="Стиль достижений">
-        <button class="current-section style-tab" type="button" role="tab" aria-selected="true" data-style="all">Все ачивки <span id="tab-count">96</span></button>
-        <button class="style-tab" type="button" role="tab" aria-selected="false" data-style="old">Старый стиль <span id="old-style-count">96</span></button>
-        <button class="style-tab" type="button" role="tab" aria-selected="false" data-style="new">Новый стиль <span id="new-style-count">0</span></button>
+        <button class="current-section style-tab" type="button" role="tab" aria-selected="true" data-style="all"><span class="tab-label">Все ачивки</span><span id="tab-count">96</span></button>
+        <button class="style-tab" type="button" role="tab" aria-selected="false" data-style="old"><span class="tab-label">Старый стиль</span><span id="old-style-count">96</span></button>
+        <button class="style-tab" type="button" role="tab" aria-selected="false" data-style="new"><span class="tab-label">Новый стиль</span><span id="new-style-count">0</span></button>
       </div>
       <button class="data-button" id="open-data" type="button"><svg class="icon" aria-hidden="true"><use href="#icon-data"/></svg><span>Данные</span></button>
     </div>
@@ -85,10 +85,10 @@
   <dialog id="data-dialog" class="data-dialog" aria-labelledby="data-title">
     <button class="close-button" type="button" data-close aria-label="Закрыть"><svg class="icon" aria-hidden="true"><use href="#icon-close"/></svg></button>
     <p class="eyebrow">ТВОЯ КОЛЛЕКЦИЯ</p><h2 id="data-title">Данные достижений</h2>
-    <p>Можно сохранить коллекцию или загрузить другой набор, чтобы попробовать его с этим оформлением.</p>
-    <div class="data-actions"><button id="export-data" class="primary-button" type="button">Скачать JSON</button><label class="secondary-button import-label" for="import-data">Загрузить JSON<input type="file" id="import-data" accept=".json,application/json"></label></div>
-    <p class="data-note">Загрузка меняет коллекцию только в этом браузере. Для общего сайта изменения нужно опубликовать отдельно.</p>
-    <p class="data-note">Картинки указываются ссылками или путями внутри сайта. Сам JSON не содержит файлы изображений.</p>
+    <p id="data-intro">Можно сохранить коллекцию или загрузить другой набор, чтобы попробовать его с этим оформлением.</p>
+    <div class="data-actions"><button id="export-data" class="primary-button" type="button">Скачать JSON</button><label class="secondary-button import-label" for="import-data"><span class="import-text">Загрузить JSON</span><input type="file" id="import-data" accept=".json,application/json"></label></div>
+    <p class="data-note" id="data-import-note">Загрузка меняет коллекцию только в этом браузере. Для общего сайта изменения нужно опубликовать отдельно.</p>
+    <p class="data-note" id="data-image-note">Картинки указываются ссылками или путями внутри сайта. Сам JSON не содержит файлы изображений.</p>
     <p id="import-status" class="import-status" role="status" aria-live="polite"></p>
     <button id="reset-data" class="text-button" type="button" hidden>Вернуться к исходной коллекции</button>
   </dialog>

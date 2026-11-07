@@ -28,6 +28,7 @@
     const ids = new Set();
     for (const party of data.parties) {
       if (!party || typeof party.id !== 'string' || !party.id || ids.has(party.id) || typeof party.title !== 'string') throw new Error('Проверь названия и идентификаторы партий.');
+      if (party.hidden !== undefined && typeof party.hidden !== 'boolean') throw new Error('Проверь настройку скрытия партии.');
       ids.add(party.id);
     }
     for (const record of data.achievements) {
@@ -57,7 +58,8 @@
     const tail = anchor ? next.achievements.slice(next.achievements.indexOf(anchor) + 1)
       .filter(record => record.partyId === oldId && (record.artStyle === 'new' ? 'new' : 'old') === style) : [];
     const position = tail.length ? oldIndex + 1 : next.parties.length;
-    next.parties.splice(position, 0, {id,title,artStyle:style});
+    const hidden = tail.length && next.parties[oldIndex]?.hidden === true;
+    next.parties.splice(position, 0, {id,title,artStyle:style,...(hidden?{hidden:true}:{})});
     for (const record of tail) {
       record.partyId = id;
       record.campaign = title;
