@@ -1458,11 +1458,11 @@ window.ACHIEVEMENT_DATA = {
       "title": "Знакомьтесь, оруженосец Бигсби.",
       "description": "Получите союзника-Npc за предысторию.",
       "artStyle": "new",
-      "image": "assets/achievements/user-4d7bf615-326a-4f1c-9a14-dc83079ec739.webp",
+      "image": "assets/achievements/user-a0639388-705c-47da-b1fe-1deb719f4566.webp",
       "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
       "imageRendering": "auto",
       "campaign": "“Конвергенция пяти источников магии”",
-      "detailImage": "assets/achievements/user-c6c82177-7ab4-41ae-b961-4c48643ee010.png"
+      "detailImage": "assets/achievements/user-2e3df4b6-62b8-43cc-b59c-3829f8a8fc80.png"
     },
     {
       "id": "achievement-69817040-95fe-46bb-b055-6144c64e1bef",
@@ -1532,7 +1532,8 @@ window.ACHIEVEMENT_DATA = {
     {
       "id": "party-001--new-style",
       "title": "“Земли террора”",
-      "artStyle": "new"
+      "artStyle": "new",
+      "hidden": true
     },
     {
       "id": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
