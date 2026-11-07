@@ -1481,10 +1481,10 @@ window.ACHIEVEMENT_DATA = {
       "title": "Экспозиционная подмога",
       "description": "Познакомтесь с другом вашего отца.",
       "artStyle": "new",
-      "image": "assets/achievements/user-387c0064-2af6-4f93-a188-1c4e572fdafd.webp",
+      "image": "assets/achievements/user-cb6c6f34-9d38-4657-a72e-6c822f233597.webp",
       "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
       "imageRendering": "auto",
-      "detailImage": "assets/achievements/user-435cd34e-5f68-48a9-8d34-4030c8433352.png",
+      "detailImage": "assets/achievements/user-f8cd73c8-8951-4dd8-a33b-d5d1c376be41.png",
       "campaign": "“Конвергенция пяти источников магии”"
     }
   ],
