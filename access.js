@@ -21,14 +21,22 @@
   }
   function boot() {
     if (!bootPromise) {
-      bootPromise = loadScript('collection.js?v=party-visibility-texts-1')
-        .then(() => loadScript('data/achievements-data.js?v='+Date.now()))
-        .then(() => loadScript('app.js?v=party-visibility-texts-1'))
+      bootPromise = loadScript('collection.js?v=published-data-2')
+        .then(async () => {
+          if (location.protocol === 'file:') {
+            await loadScript('data/achievements-data.js?v=' + Date.now());
+            return;
+          }
+          const response = await fetch('data/achievements.json?v=' + Date.now(), {cache:'no-store'});
+          if (!response.ok) throw new Error('load-failed');
+          window.ACHIEVEMENT_DATA = await response.json();
+        })
+        .then(() => loadScript('app.js?v=published-data-2'))
         .then(async()=>{
           if(!window.ACHIEVEMENT_EDITOR_MODE)return;
-          await new Promise((resolve,reject)=>{const style=document.createElement('link');style.rel='stylesheet';style.href='editor.css?v=party-visibility-texts-1';style.onload=resolve;style.onerror=reject;document.head.append(style);});
-          await loadScript('publish.js?v=party-visibility-texts-1');
-          await loadScript('editor.js?v=party-visibility-texts-1');
+          await new Promise((resolve,reject)=>{const style=document.createElement('link');style.rel='stylesheet';style.href='editor.css?v=published-data-2';style.onload=resolve;style.onerror=reject;document.head.append(style);});
+          await loadScript('publish.js?v=published-data-2');
+          await loadScript('editor.js?v=published-data-2');
         });
       bootPromise.catch(() => { bootPromise = null; });
     }
@@ -64,8 +72,9 @@
       document.title = document.querySelector('#page-title').textContent;
       page.hidden = false;
       openedMode = ownerMode;
-    } catch {
+    } catch (error) {
       if (current !== generation) return;
+      console.error('Не удалось загрузить архив.', error);
     }
   }
   addEventListener('hashchange', openInvitation);

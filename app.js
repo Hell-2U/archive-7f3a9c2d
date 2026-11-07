@@ -82,7 +82,10 @@ function applySiteTexts(texts) {
   $('#search').setAttribute('aria-label', texts.search);
 }
 const originalData = validateCollection(window.ACHIEVEMENT_DATA);
+let publishedData = originalData;
 let collection = originalData;
+let localImportActive = false;
+let refreshInProgress = false;
 let visibleRecords = [];
 let selectedId = null;
 let toastTimer;
@@ -147,8 +150,29 @@ function imageFor(record, {large = false, eager = false} = {}) {
 function restoreCollection() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) { collection = validateCollection(JSON.parse(saved)); $('#reset-data').hidden = false; }
+    if (saved) { collection = validateCollection(JSON.parse(saved)); localImportActive = true; $('#reset-data').hidden = false; }
   } catch { collection = originalData; }
+}
+async function refreshPublishedCollection() {
+  if (window.ACHIEVEMENT_EDITOR_MODE || localImportActive || refreshInProgress || location.protocol === 'file:') return;
+  refreshInProgress = true;
+  try {
+    const response = await fetch('data/achievements.json?v=' + Date.now(), {cache:'no-store'});
+    if (!response.ok) return;
+    const latest = validateCollection(await response.json());
+    if (localImportActive || JSON.stringify(latest) === JSON.stringify(publishedData)) return;
+    publishedData = latest;
+    collection = latest;
+    render();
+    if ($('#detail-dialog').open) {
+      if (visibleRecords.some(record => record.id === selectedId)) openDetail(selectedId);
+      else $('#detail-dialog').close();
+    }
+  } catch {
+    // Keep the loaded collection when offline. The next focus retries the request.
+  } finally {
+    refreshInProgress = false;
+  }
 }
 function setCollection(next) {
   collection = next; if(!window.ACHIEVEMENT_EDITOR_MODE){$('#search').value = ''; $('#sort').value = 'original';}
@@ -280,6 +304,7 @@ $('#import-data').addEventListener('change', async event => {
   try {
     if (file.size > MAX_IMPORT_BYTES) throw new Error('Выбери JSON размером до 10 МБ.');
     const next = validateCollection(JSON.parse((await file.text()).replace(/^\uFEFF/, '')));
+    localImportActive = true;
     let saved = true;
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch { saved = false; }
     setCollection(next); $('#reset-data').hidden = false;
@@ -291,8 +316,14 @@ $('#import-data').addEventListener('change', async event => {
 });
 $('#reset-data').addEventListener('click', () => {
   try { localStorage.removeItem(STORAGE_KEY); } catch { /* Storage may be disabled. */ }
-  setCollection(originalData); $('#reset-data').hidden = true;
+  localImportActive = false;
+  setCollection(publishedData); $('#reset-data').hidden = true;
   $('#import-status').classList.remove('error'); $('#import-status').textContent = 'Восстановлена исходная коллекция.';
+});
+addEventListener('focus', refreshPublishedCollection);
+addEventListener('pageshow', event => { if (event.persisted) refreshPublishedCollection(); });
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') refreshPublishedCollection();
 });
 window.achievementArchive = {
   getCollection:()=>structuredClone(collection),
