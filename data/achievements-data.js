@@ -1486,6 +1486,50 @@ window.ACHIEVEMENT_DATA = {
       "imageRendering": "auto",
       "detailImage": "assets/achievements/user-f8cd73c8-8951-4dd8-a33b-d5d1c376be41.png",
       "campaign": "“Конвергенция пяти источников магии”"
+    },
+    {
+      "id": "achievement-09a8b4fb-0c70-4447-ab11-be29bcbd45df",
+      "title": "\"Это же как в Baldur’s Gate 3!\"",
+      "description": "Очаруйте друида и возьмите его в отряд.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-a6d885c0-63f1-43f1-8a29-41d68094879d.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "detailImage": "assets/achievements/user-8ef76945-364f-47ca-b9c3-dd3dbfde8aaf.png",
+      "campaign": "“Конвергенция пяти источников магии”"
+    },
+    {
+      "id": "achievement-6cda5ff3-b746-4ab1-99cc-ffd05c1bff42",
+      "title": "\"Трудная беседа с простым человеком\"",
+      "description": "Проведите тяжёлый разговор со своим отцом.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-f836fc56-7b5a-4ea9-9ff9-780fc105453d.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "detailImage": "assets/achievements/user-49104513-b680-4b4b-a2d8-f40fa29c673e.png",
+      "campaign": "“Конвергенция пяти источников магии”"
+    },
+    {
+      "id": "achievement-cb07f83a-bbb4-47aa-bd02-6759d4b34729",
+      "title": "\"Парк юрского периода\"",
+      "description": "Приручите дилофозавра.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-c8279b66-b4f0-43a1-abde-4689486146de.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "detailImage": "assets/achievements/user-77cf3e5b-dd11-46c9-9b17-104133da9eeb.png",
+      "campaign": "“Конвергенция пяти источников магии”"
+    },
+    {
+      "id": "achievement-1ee15b62-7728-4f61-a1b8-baf2dddca8f9",
+      "title": "\"Проблемы сами нас находят\"",
+      "description": "Встретьте босса раньше чем ожидалось.",
+      "artStyle": "new",
+      "image": "assets/achievements/user-c8943cf6-4ab3-41f6-a749-a1224a30e83d.webp",
+      "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
+      "imageRendering": "auto",
+      "detailImage": "assets/achievements/user-df61d86c-a9a5-425a-a1f0-c951a9319b18.png",
+      "campaign": "“Конвергенция пяти источников магии”"
     }
   ],
   "parties": [
