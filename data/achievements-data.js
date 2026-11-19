@@ -1525,10 +1525,10 @@ window.ACHIEVEMENT_DATA = {
       "title": "\"Проблемы сами нас находят\"",
       "description": "Встретьте босса раньше чем ожидалось.",
       "artStyle": "new",
-      "image": "assets/achievements/user-c8943cf6-4ab3-41f6-a749-a1224a30e83d.webp",
+      "image": "assets/achievements/user-94e4537c-6006-4c23-930b-52a1838fb71b.webp",
       "partyId": "party-43a971ef-2b16-4224-ab38-6b186b1f5116",
       "imageRendering": "auto",
-      "detailImage": "assets/achievements/user-df61d86c-a9a5-425a-a1f0-c951a9319b18.png",
+      "detailImage": "assets/achievements/user-0c5aa919-69a3-4a4d-ac25-d7a9eabf2734.png",
       "campaign": "“Конвергенция пяти источников магии”"
     }
   ],
